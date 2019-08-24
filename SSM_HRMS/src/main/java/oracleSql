@@ -1,0 +1,8 @@
+¥¥Ω®–Ú¡–
+create sequence seq_depart
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+

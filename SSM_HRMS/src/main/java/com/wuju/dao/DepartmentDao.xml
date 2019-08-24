@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.DepartmentDao">
+    <insert id="addDepartment">
+        insert into T_DEPARTMENT values (SEQ_DEPART.nextval,#{dpName},#{company.cpId})
+    </insert>
+    <update id="updateDepartment">
+        update T_DEPARTMENT set DP_NAME=#{dpName} where DP_ID=#{dpId}
+    </update>
+    <delete id="delDepartment">
+
+    </delete>
+    <select id="getDepartment" resultType="java.lang.Boolean"></select>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.CompanyDao">
+    <update id="updateCompany">
+        update T_COMPANY set CP_PHONE=#{cpPhone},CP_ADDRESS=#{cpAddress},CP_ESTABLISH=#{cpEstablish},
+        CP_STAFFSIZE=#{cpStaffsize},CP_INDUSTRY=#{cpIndustry},CP_INTRODUCTION=#{cpIntroduction} where CP_ID=1
+    </update>
+    <select id="getCompanyByName" resultType="com.wuju.model.Company">
+        select * from T_COMPANY where CP_NAME=#{cpName}
+    </select>
+</mapper>

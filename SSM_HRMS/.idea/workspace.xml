@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SSM_HRMS:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fdda713d-8f0d-4ef1-9414-d29e0147ed7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/71064618-20fd-4911-a605-a708a57eea09.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/71064618-20fd-4911-a605-a708a57eea09/storage_v2/_src_/schema/HRMSPROJECT.yUjLfg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SSM_HRMS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/AdminBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/CompanyBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/EmployeeBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/AdminBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/CompanyBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/EmployeeBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/AdminDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/EmployeeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/model/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/model/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wuju/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/oracleSql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/adminHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/companyInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/recruitment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EmployeeDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/aspectjrt-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/aspectjweaver-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/commons-fileupload-1.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/commons-io-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-core-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-core-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-databind-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-mapper-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jackson-module-jaxb-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/jta-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/junit-4.13-beta-3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/mybatis-3.2.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/mybatis-spring-1.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/ojdbc6_g-11.2.0.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/slf4j-api-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-aspects-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-instrument-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-jms-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-messaging-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-orm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-oxm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/spring-websocket-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/lib/standard-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/adminHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/companyInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/recruitHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/recruitment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/homepageHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SSM_HRMS/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/EmployeeDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/aspectjrt-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/aspectjweaver-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/commons-fileupload-1.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/commons-io-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-core-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-core-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-databind-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-mapper-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jackson-module-jaxb-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/jta-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/junit-4.13-beta-3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/mybatis-3.2.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/mybatis-spring-1.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/ojdbc6_g-11.2.0.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/slf4j-api-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-aspects-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-instrument-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-jms-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-messaging-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-orm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-oxm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/spring-websocket-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/lib/standard-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/biz/CompanyBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/biz/bizImpl/CompanyBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/dao/CompanyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/adminHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/companyInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/employee.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/recruitHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/homepageHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject/target/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/hrmsProject3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/AdminBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/CompanyBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/EmployeeBiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/bizImpl/AdminBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/bizImpl/CompanyBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/biz/bizImpl/EmployeeBizImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/AdminDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/CompanyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/EmployeeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/model/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/java/com/wuju/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/resources/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/resources/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/resources/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/adminHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/companyInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/employee.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/recruitHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/page/recruitment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/homepageHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/bean.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/AdminBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/CompanyBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/EmployeeBiz.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/bizImpl/AdminBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/bizImpl/CompanyBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/biz/bizImpl/EmployeeBizImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/CompanyDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/CompanyDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/EmployeeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/dao/EmployeeDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/model/Admin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/model/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/com/wuju/model/Employee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/mybatisConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/classes/springMVC-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/aspectjrt-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/aspectjweaver-1.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/commons-fileupload-1.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/commons-io-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-core-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-core-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-databind-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-mapper-asl-1.8.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jackson-module-jaxb-annotations-2.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/jta-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/junit-4.13-beta-3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/mybatis-3.2.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/mybatis-spring-1.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/mysql-connector-java-5.1.40.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/ojdbc6_g-11.2.0.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/slf4j-api-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-aspects-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-instrument-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-instrument-tomcat-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-jms-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-messaging-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-orm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-oxm-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-webmvc-portlet-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/spring-websocket-4.2.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/lib/standard-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/adminHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/companyInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/employee.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/recruitHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/page/recruitment.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/homepageHead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hrmsProject3/target/hrmsProject3/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/.idea/artifacts/hrmsProject_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/.idea/artifacts/hrmsProject_Web_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/hrmsProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/hrmsProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/dao/AdminDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/src/main/java/com/wuju/dao/AdminDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/page/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/SSM_HRMS/WEB-INF/page/employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/page/employee.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/employee.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/page/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/page/recruitHead.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/recruitHead.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/page/recruitment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/WEB-INF/page/recruitment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/out/artifacts/hrmsProject_Web_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/homepageHead.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageHead.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hrmsProject/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../hrmsProject/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="HRMSPROJECT: schema" type="ac44c5e0:OracleImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="HRMSPROJECT: schema" type="ac44c5e0:OracleImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="HRMSPROJECT: schema" type="ac44c5e0:OracleImplModel$Schema" />
+        <item name="sequences" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1901163404">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="T_COMPANY" value="2" />
+          <entry key="T_EMPLOYEE" value="3" />
+          <entry key="T_POSITION" value="1" />
+          <entry key="class" value="8" />
+          <entry key="dtd" value="1" />
+          <entry key="java" value="24" />
+          <entry key="jsp" value="21" />
+          <entry key="oracleSql" value="1" />
+          <entry key="pom" value="2" />
+          <entry key="sql" value="1" />
+          <entry key="xml" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="8" />
+          <entry key="DTD" value="1" />
+          <entry key="Database Element" value="6" />
+          <entry key="JAVA" value="24" />
+          <entry key="JSP" value="21" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cell" value="24" />
+          <entry key="java" value="463" />
+          <entry key="jsp" value="310" />
+          <entry key="oracleSql" value="7" />
+          <entry key="xml" value="211" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="463" />
+          <entry key="JSP" value="310" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="SQL" value="3" />
+          <entry key="Scratch" value="24" />
+          <entry key="XML" value="208" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/adminHead.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Department.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#163#164#0" expanded="true" />
+                <element signature="e#190#191#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#263#264#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#369#370#0" expanded="true" />
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#440#441#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#555#556#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://71064618-20fd-4911-a605-a708a57eea09/schema/HRMSPROJECT/table/T_POSITION">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/oracleSql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="mybatis-config" />
+        <option value="Class" />
+        <option value="Mybatis Mapper" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jstl</find>
+      <find>ignored</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/a.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/springMVC-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/recruitment.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/model/Company.java" />
+        <option value="$PROJECT_DIR$/src/test/java/EmployeeDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/biz/CompanyBiz.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/CompanyBizImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/companyInfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/adminHead.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/model/Department.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/oracleSql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/Program Files/apache-maven-3.3.9" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="y" value="18" />
+    <option name="width" value="1378" />
+    <option name="height" value="717" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wuju" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wuju" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wuju" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wuju" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="wuju" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SSM_HRMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SSM_HRMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="oracle" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Git_Projects\hrmsProject\SSM_HRMS\src\main\webapp\WEB-INF" />
+      <recent name="E:\Git_Projects\hrmsProject\SSM_HRMS\src" />
+      <recent name="E:\Git_Projects\hrmsProject\SSM_HRMS\src\main\webapp" />
+      <recent name="E:\Git_Projects\hrmsProject\SSM_HRMS\src\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat8.0.33">
+    <configuration name="EmployeeDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSM_HRMS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EmployeeDaoTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeDaoTest.testGetEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSM_HRMS" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EmployeeDaoTest" />
+      <option name="METHOD_NAME" value="testGetEmployee" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat8.0.33" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.33" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="SSM_HRMS:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/hrms" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SSM_HRMS" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61643" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SSM_HRMS:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat8.0.33" />
+      <item itemvalue="JUnit.EmployeeDaoTest.testGetEmployee" />
+      <item itemvalue="JUnit.EmployeeDaoTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EmployeeDaoTest" />
+        <item itemvalue="JUnit.EmployeeDaoTest.testGetEmployee" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdda713d-8f0d-4ef1-9414-d29e0147ed7f" name="Default Changelist" comment="" />
+      <created>1566617409508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566617409508</updated>
+      <workItem from="1566617413343" duration="12359000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="EmployeeDaoTest_testGetEmployee - 2019.08.24 at 14h 43m 07s.xml">
+      <configuration name="EmployeeDaoTest.testGetEmployee" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeDaoTest - 2019.08.24 at 14h 52m 02s.xml">
+      <configuration name="EmployeeDaoTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="12359000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Web" side_tool="true" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2753404" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" weight="0.3289689" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.3295082" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.81311476" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41147542" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" weight="0.19742814" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/a.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/AdminBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/homepageHead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bean.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/71064618-20fd-4911-a605-a708a57eea09/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.6.RELEASE/spring-web-4.2.6.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.6.RELEASE/spring-web-4.2.6.RELEASE.jar!/org/springframework/web/filter/CharacterEncodingFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="406" selection-start-line="406" selection-end-line="406" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="408" selection-start-line="408" selection-end-line="408" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="468" selection-start-line="468" selection-end-line="468" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.6.RELEASE/spring-webmvc-4.2.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.6.RELEASE/spring-web-4.2.6.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/recruitHead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/recruitment.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_3.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="93" column="28" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatisConfig.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springMVC-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="38" column="20" lean-forward="true" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/EmployeeDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/CompanyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/biz/CompanyBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/biz/bizImpl/CompanyBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding>
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" column="40" lean-forward="true" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://71064618-20fd-4911-a605-a708a57eea09/schema/HRMSPROJECT/table/T_COMPANY">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/companyInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/adminHead.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Department.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#163#164#0" expanded="true" />
+            <element signature="e#190#191#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/oracleSql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/model/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://71064618-20fd-4911-a605-a708a57eea09/schema/HRMSPROJECT/table/T_POSITION">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://71064618-20fd-4911-a605-a708a57eea09/schema/HRMSPROJECT/table/T_EMPLOYEE">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wuju/dao/DepartmentDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>SSM_HRMS:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>SSM_HRMS</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5603448" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
