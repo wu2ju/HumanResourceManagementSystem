@@ -1,11 +1,7 @@
 package com.wuju.controller;
 
-import com.wuju.biz.AdminBiz;
-import com.wuju.biz.CompanyBiz;
-import com.wuju.biz.EmployeeBiz;
-import com.wuju.model.Admin;
-import com.wuju.model.Company;
-import com.wuju.model.Employee;
+import com.wuju.biz.*;
+import com.wuju.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +11,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -24,6 +22,122 @@ public class AdminController {
     private EmployeeBiz employeeBiz;
     @Resource
     private CompanyBiz companyBiz;
+    @Resource
+    private DepartmentBiz departmentBiz;
+    @Resource
+    private PositionBiz positionBiz;
+
+    @RequestMapping("employee")
+    public String employee(Model model){
+        employeeBiz.getAllEmployees();
+        return "employee";
+    }
+
+    @RequestMapping("addPos")
+    public String addPos(Position position, Department d, Model model){
+        // d里面有dpName，在该dpName的部门下添加职位
+        System.out.println("addPos: " + position);
+        System.out.println("addPos: " + d);
+        Department department = departmentBiz.getDepartmentByDpName(d.getDpName());
+        position.setDepartment(department);
+        boolean flag = positionBiz.addPosition(position);
+        if (!flag){
+            model.addAttribute("flag",flag);
+        }
+        return "forward:position";
+    }
+
+    @RequestMapping("delPos")
+    public String delPos(Integer pId, Model model){
+        // 删除部门
+        boolean flag = positionBiz.delPosition(pId);
+        //不管更新成功或失败
+        if (!flag){
+            model.addAttribute("str","职位下有在职员工，删除失败");
+        }
+        return "forward:position";
+    }
+
+    @RequestMapping("updatePos")
+    public String updatePos(Position position, Model model){
+        // 1、显示部门信息
+        boolean flag = positionBiz.updatePosition(position);
+        //不管更新成功或失败
+        if (flag){
+            model.addAttribute("str","修改成功");
+        }else {
+            model.addAttribute("str","职位重名，修改失败");
+        }
+        return "forward:position";
+    }
+
+    @RequestMapping("position")
+    public String position(Department d, Model model){
+        // 三个入口，1、d不为null，但是所有属性为null 2、d里面只有dpId 3、d里面只有dpName 查找该dpId/dpName的部门职位
+        // 显示部门信息
+        List<Department> departments = departmentBiz.getAllDepartments();
+        model.addAttribute("departments",departments);
+        List<Position> positions = new ArrayList<>();
+        System.out.println("position: " + d);
+        if (d.getDpId() == null && d.getDpName() == null){
+            positions = positionBiz.getAllPositions();
+        }else {
+            Department department = departmentBiz.getDepartment(d);
+            System.out.println("position: " + department);
+            //Department中包含Company和Position
+            //Position又包含Employee
+            if (department != null){
+                positions = department.getPositions();
+            }
+        }
+        System.out.println("position: " + positions);
+        model.addAttribute("positions",positions);
+        return "position";
+    }
+
+    @RequestMapping("addDep")
+    public String addDep(Department d, Model model){
+        // 增加部门
+        boolean flag = departmentBiz.addDepartment(d);
+        //不管更新成功或失败
+        if (!flag){
+            model.addAttribute("flag",flag);
+        }
+        return "forward:department";
+    }
+
+    @RequestMapping("delDep")
+    public String delDep(Integer dpId, Model model){
+        // 删除部门
+        boolean flag = departmentBiz.delDepartment(dpId);
+        //不管更新成功或失败
+        if (!flag){
+            model.addAttribute("str","部门下有在职员工，删除失败");
+        }
+        return "forward:department";
+    }
+
+
+    @RequestMapping("updateDep")
+    public String updateDep(Department department, Model model){
+        // 1、显示部门信息
+        boolean flag = departmentBiz.updateDepartment(department);
+        //不管更新成功或失败
+        if (flag){
+            model.addAttribute("str","修改成功");
+        }else {
+            model.addAttribute("str","部门重名，修改失败");
+        }
+        return "forward:department";
+    }
+
+    @RequestMapping("department")
+    public String department(Model model){
+        // 1、显示部门信息
+        List<Department> departments = departmentBiz.getAllDepartments();
+        model.addAttribute("departments",departments);
+        return "department";
+    }
 
     @RequestMapping("companyInfo")
     public String companyInfo(Company c, Model model){

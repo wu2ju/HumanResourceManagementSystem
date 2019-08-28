@@ -27,7 +27,7 @@
         创立时间：<input type="date" name="cpEstablish" value="${company.cpEstablish}"><br>
         员工人数：<input name="cpStaffsize" value="${company.cpStaffsize}"><br>
         所属行业：<input name="cpIndustry" value="${company.cpIndustry}"><br>
-        介绍：<input name="cpIntroduction" value="${company.cpIntroduction}"><br>
+        介绍：<input type="text" name="cpIntroduction" value="${company.cpIntroduction}"><br>
         <input type="submit" value="完善公司信息">
     </form>
 </fieldset>

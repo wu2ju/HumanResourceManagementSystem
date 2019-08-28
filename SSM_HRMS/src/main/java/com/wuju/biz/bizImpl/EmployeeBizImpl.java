@@ -6,6 +6,7 @@ import com.wuju.model.Employee;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class EmployeeBizImpl implements EmployeeBiz {
@@ -17,5 +18,10 @@ public class EmployeeBizImpl implements EmployeeBiz {
             return null;
         }
         return employeeDao.getEmployeeByAccountAndPassword(e);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeDao.getAllEmployees();
     }
 }

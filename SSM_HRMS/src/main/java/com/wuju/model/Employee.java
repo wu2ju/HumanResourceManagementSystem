@@ -13,7 +13,7 @@ public class Employee {
     private String ePhone;
     private String eEmail;
     private Integer eState;
-    private Integer p_id;
+    private Position position;
 
     public Employee() {
     }
@@ -109,12 +109,12 @@ public class Employee {
         this.eState = eState;
     }
 
-    public Integer getP_id() {
-        return p_id;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setP_id(Integer p_id) {
-        this.p_id = p_id;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     @Override
@@ -130,7 +130,7 @@ public class Employee {
                 ", ePhone='" + ePhone + '\'' +
                 ", eEmail='" + eEmail + '\'' +
                 ", eState=" + eState +
-                ", p_id=" + p_id +
+                ", position=" + position +
                 '}';
     }
 }

@@ -18,8 +18,8 @@
 <body>
 <%--管理员--%>
 <a href="companyInfo?cpName=IOTEK">公司信息</a>
-<a href="">部门管理</a>
-<a href="">职位管理</a>
+<a href="department">部门管理</a>
+<a href="position">职位管理</a>
 <a href="">员工管理</a>
 <a href="">薪资结算</a>
 <a href="">培训</a>

@@ -22,7 +22,7 @@
     <input type="checkbox" name="remember" value="yes">是否记住密码<br>
     <input type="submit" value="登录">
 </form>
-<p style="color: red"><%=request.getAttribute("str")%></p>
+<%--<p style="color: red"><%=request.getAttribute("str")%></p>--%>
 <p style="color: red">${str}</p>
 
 

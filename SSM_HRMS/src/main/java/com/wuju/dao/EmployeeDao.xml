@@ -4,4 +4,32 @@
     <select id="getEmployeeByAccountAndPassword" resultType="Employee">
         select * from T_EMPLOYEE where E_ACCOUNT=#{eAccount} and E_PASSWORD=#{ePassword}
     </select>
+    <select id="getEmployee" resultMap="empToPos">
+        select * from T_EMPLOYEE
+        <where>
+            <if test="eId !=null and eId != 0 ">
+                and E_ID=#{eId}
+            </if>
+        </where>
+    </select>
+    <select id="getAllEmployees" resultType="com.wuju.model.Employee">
+        select * from T_EMPLOYEE
+    </select>
+
+    <resultMap id="empToPos" type="Employee">
+        <id property="eId" column="E_ID"/>
+        <result property="eAccount" column="E_ACCOUNT"/>
+        <result property="ePassword" column="E_PASSWORD"/>
+        <result property="eType" column="E_TYPE"/>
+        <result property="eName" column="E_NAME"/>
+        <result property="eSex" column="E_SEX"/>
+        <result property="eBirthday" column="E_BIRTHDAY"/>
+        <result property="ePhone" column="E_PHONE"/>
+        <result property="eEmail" column="E_EMAIL"/>
+        <result property="eState" column="E_STATE"/>
+        <association property="position" javaType="Position"
+                     column="P_ID" select="com.wuju.dao.PositionDao.getPositionById">
+        </association>
+    </resultMap>
+
 </mapper>

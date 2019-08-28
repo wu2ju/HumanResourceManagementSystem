@@ -17,6 +17,11 @@ public class CompanyBizImpl implements CompanyBiz {
     }
 
     @Override
+    public Company getCompanyById(int cpId) {
+        return companyDao.getCompanyById(1);
+    }
+
+    @Override
     public boolean updateCompany(Company c) {
         return companyDao.updateCompany(c);
     }

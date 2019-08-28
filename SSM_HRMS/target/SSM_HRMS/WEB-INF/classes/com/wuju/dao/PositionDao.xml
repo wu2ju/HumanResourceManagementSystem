@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.PositionDao">
+    <insert id="addPosition">
+        insert into T_POSITION values (SEQ_POS.nextval,#{pName},#{pSalary},#{pLocation},
+        #{pExperience},#{pEducation},#{pIntroduction},#{pRequest},#{department.dpId})
+    </insert>
+    <update id="updatePosition">
+        update T_POSITION set P_NAME=#{pName},P_SALARY=#{pSalary},P_LOCATION=#{pLocation},P_EXPERIENCE=#{pExperience},
+        P_EDUCATION=#{pEducation},P_INTRODUCTION=#{pIntroduction},P_REQUEST=#{pRequest},DP_ID=#{department.dpId}
+        where P_ID=#{pId}
+    </update>
+    <delete id="delPosition">
+        delete from T_POSITION where P_ID=#{pId}
+    </delete>
+    <select id="getPosition" resultMap="posToDep">
+        select * /*p.P_ID,p.P_NAME,p.P_SALARY,p.P_LOCATION,p.P_EXPERIENCE,p.P_EDUCATION,
+        p.P_INTRODUCTION,p.P_REQUEST,e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,
+        e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE*/
+        from T_POSITION p,T_EMPLOYEE e where p.P_ID=e.P_ID
+        <if test="pId != null and pId != 0">
+            and p.P_ID=#{pId}
+        </if>
+        <if test="eState != null">
+            and e.E_STATE=#{eState}
+        </if>
+       <!--<if test="dpId != null and dpId != 0">
+          and DP_ID=#{department.dpId}
+       </if>-->
+    </select>
+    <select id="getPositionById" resultMap="posToDep">
+        select * from T_POSITION where P_ID=#{pId}
+    </select>
+    <select id="getPositionByPName" resultType="com.wuju.model.Position">
+        select * from T_POSITION where P_NAME=#{pName}
+    </select>
+    <select id="getAllPositions" resultType="com.wuju.model.Position">
+        select * from T_POSITION
+    </select>
+
+    <resultMap id="posToDep" type="Position">
+        <id property="pId" column="P_ID"/>
+        <result property="pName" column="P_NAME"/>
+        <result property="pSalary" column="P_SALARY"/>
+        <result property="pLocation" column="P_LOCATION"/>
+        <result property="pExperience" column="P_EXPERIENCE"/>
+        <result property="pEducation" column="P_EDUCATION"/>
+        <result property="pIntroduction" column="P_INTRODUCTION"/>
+        <result property="pRequest" column="P_REQUEST"/>
+        <association property="department" javaType="Department"
+                     column="DP_ID" select="com.wuju.dao.DepartmentDao.getDepartmentById">
+        </association>
+        <collection property="employees" ofType="Employee">
+            <id property="eId" column="E_ID"/>
+            <result property="eAccount" column="E_ACCOUNT"/>
+            <result property="ePassword" column="E_PASSWORD"/>
+            <result property="eType" column="E_TYPE"/>
+            <result property="eName" column="E_NAME"/>
+            <result property="eSex" column="E_SEX"/>
+            <result property="eBirthday" column="E_BIRTHDAY"/>
+            <result property="ePhone" column="E_PHONE"/>
+            <result property="eEmail" column="E_EMAIL"/>
+            <result property="eState" column="E_STATE"/>
+        </collection>
+    </resultMap>
+</mapper>

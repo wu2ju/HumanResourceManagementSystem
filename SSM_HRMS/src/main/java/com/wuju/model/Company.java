@@ -12,7 +12,12 @@ public class Company {
     private String cpIndustry;
     private String cpIntroduction;
 
+
     public Company() {
+    }
+
+    public Company(Integer cpId) {
+        this.cpId = cpId;
     }
 
     public Integer getCpId() {

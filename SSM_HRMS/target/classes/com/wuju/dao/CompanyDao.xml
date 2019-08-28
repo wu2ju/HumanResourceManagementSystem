@@ -8,4 +8,7 @@
     <select id="getCompanyByName" resultType="com.wuju.model.Company">
         select * from T_COMPANY where CP_NAME=#{cpName}
     </select>
+    <select id="getCompanyById" resultType="com.wuju.model.Company">
+        select * from T_COMPANY where CP_ID=#{cpId}
+    </select>
 </mapper>
