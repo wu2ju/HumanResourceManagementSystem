@@ -27,11 +27,11 @@ public class AdminController {
     @Resource
     private PositionBiz positionBiz;
 
-    @RequestMapping("employee")
+    /*@RequestMapping("employee")
     public String employee(Model model){
         employeeBiz.getAllEmployees();
         return "employee";
-    }
+    }*/
 
     @RequestMapping("addPos")
     public String addPos(Position position, Department d, Model model){
@@ -72,26 +72,33 @@ public class AdminController {
     }
 
     @RequestMapping("position")
-    public String position(Department d, Model model){
+    public String position(Integer pageNo, Department d,  Model model){
         // 三个入口，1、d不为null，但是所有属性为null 2、d里面只有dpId 3、d里面只有dpName 查找该dpId/dpName的部门职位
         // 显示部门信息
         List<Department> departments = departmentBiz.getAllDepartments();
         model.addAttribute("departments",departments);
-        List<Position> positions = new ArrayList<>();
-        System.out.println("position: " + d);
-        if (d.getDpId() == null && d.getDpName() == null){
-            positions = positionBiz.getAllPositions();
+        if(pageNo == null || pageNo < 1){
+            pageNo=1;
+        }
+//        List<Position> positions = new ArrayList<>();
+        Page<Position> positionPage = new Page<>();
+        System.out.println("position: " + d.getDpName());
+        if (d.getDpId() == null && (d.getDpName() == null || d.getDpName().equals("") ) ){
+            //select 选择部门时，dpName可能为""。
+//            positions = positionBiz.getAllPositions();
+            positionPage = positionBiz.getAllPositionsByLimit(pageNo);
         }else {
             Department department = departmentBiz.getDepartment(d);
             System.out.println("position: " + department);
             //Department中包含Company和Position
             //Position又包含Employee
             if (department != null){
-                positions = department.getPositions();
+//                positions = department.getPositions();
+                positionPage = positionBiz.getPositionsByDpIdAndLimit(department.getDpId(),pageNo);
             }
         }
-        System.out.println("position: " + positions);
-        model.addAttribute("positions",positions);
+//        model.addAttribute("positions",positions);
+        model.addAttribute("positionPage",positionPage);
         return "position";
     }
 
@@ -132,10 +139,16 @@ public class AdminController {
     }
 
     @RequestMapping("department")
-    public String department(Model model){
+    public String department(Integer pageNo, Model model){
         // 1、显示部门信息
-        List<Department> departments = departmentBiz.getAllDepartments();
-        model.addAttribute("departments",departments);
+//        List<Department> departments = departmentBiz.getAllDepartments();
+//        model.addAttribute("departments",departments);
+
+        if(pageNo == null || pageNo < 1){
+            pageNo=1;
+        }
+        Page<Department> departmentPage = departmentBiz.getAllDepartmentsByLimit(pageNo);
+        model.addAttribute("departmentPage",departmentPage);
         return "department";
     }
 
@@ -155,7 +168,7 @@ public class AdminController {
         // 登录：先查看cookie中是否有次记录，
         // 登录时，只需要账号和密码，不需要判断类型type，因为账号是唯一的，且管理员的账号是已经存在表中的，不能被注册
 //        Employee e = new Employee(eAccount,ePassword);
-        if (e == null || e.geteAccount() == "" || e.getePassword() == ""){
+        if (e == null || e.geteAccount().equals("") || e.getePassword().equals("")){
             model.addAttribute("str","填写信息不完整，请重新输入！");
             return "login";
         }
@@ -175,7 +188,7 @@ public class AdminController {
             // 0表示管理员登录，进入管理员界面，1表示员工登录
             return "admin";
         }else {
-            return "employee";
+            return "redirect:employee";
         }
 
         /*if (type.equals("0")){

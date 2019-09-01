@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.wuju.model.Department" %><%--
+<%@ page import="com.wuju.model.Department" %>
+<%@ page import="com.wuju.model.Page" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/27
@@ -79,7 +80,7 @@
 
     </form>
 </div>
-
+    <td><p style="color: red">${str}</p></td>
 <%--显示所有部门--%>
 <fieldset>
     <legend>部门</legend>
@@ -91,15 +92,16 @@
             <th>删除</th>
         </tr>
         <%
-            List<Department> departments = (List<Department>) request.getAttribute("departments");
-            for (Department department : departments) {
+//            List<Department> departments = (List<Department>) request.getAttribute("departments");
+            Page<Department> departmentPage = (Page<Department>) request.getAttribute("departmentPage");
+            if(departmentPage.getList()!=null && departmentPage.getList().size()!=0){
+                for (Department department : departmentPage.getList()) {
         %>
-
         <tr>
             <form action="updateDep" method="post">
-                <td><input type="hidden" name="dpId" value="<%=department.getDpId()%>"></td>
+                <input type="hidden" name="dpId" value="<%=department.getDpId()%>">
+                <input type="hidden" name="dpName" value="<%=department.getDpName()%>">
                 <td><%=department.getDpName()%></td>
-                <td><input type="hidden" name="dpName" value="<%=department.getDpName()%>"></td>
                 <td><%=department.getDpEstablish()%></td>
                 <td><input type="submit" value="修改"></td>
             </form>
@@ -107,15 +109,29 @@
             <td><input id="delBtn" type="button" onclick="delDepart(<%=department.getDpId()%>)" value="删除"></td>
             <%--<td><button id="delBtn" type="button" value="<%=department.getDpId()%>">删除</button></td>--%>
             <td><a href="position?dpId=<%=department.getDpId()%>">职位信息</a></td>
-            <td><p style="color: red">${str}</p></td>
+
         </tr>
         <%
+            }
             }
         %>
     </table>
 </fieldset>
 
+    <div class="div4">
+        <span>共 <%=departmentPage.getTotalPage()%> 页</span>
+        <span>当前在第 <%=departmentPage.getPageNo()%> 页</span>
+        <span><a href="department?pageNo=1">首页</a></span>
+        <span><a href="department?pageNo=<%=departmentPage.getPrevPage()%>">上一页</a></span>
+        <span><a href="department?pageNo=<%=departmentPage.getNextPage()%>">下一页</a></span>
+        <span><a href="department?pageNo=<%=departmentPage.getTotalPage()%>">尾页</a></span>
 
+        <form action="department"  onsubmit="return checkNum(this.children[1].value)">
+            <span>跳转到</span><input name="pageNo">
+            <input type="submit" value="跳转">
+        </form>
+
+    </div>
 </div>
 
 </body>

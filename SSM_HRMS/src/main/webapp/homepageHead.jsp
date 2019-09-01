@@ -18,6 +18,6 @@
 <body>
 <a href="index.jsp">公司主页</a>
 <a href="hasCookie">登录</a>
-<a href="">招聘信息</a>
+<a href="recruitment">招聘信息</a>
 </body>
 </html>

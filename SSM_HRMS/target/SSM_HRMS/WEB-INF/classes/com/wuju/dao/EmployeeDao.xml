@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wuju.dao.EmployeeDao">
+    <insert id="addEmployee">
+        insert into T_EMPLOYEE values(SEQ_EMPLOYEE.nextval,#{eAccount},#{ePassword},#{eType},#{eName},#{eSex},
+         #{eBirthday},#{ePhone},#{eEmail},#{eState},#{position.pId},#{eEntry},#{eBefull})
+    </insert>
+    <update id="updateEmployee">
+        update T_EMPLOYEE set  E_ACCOUNT=#{eAccount},E_PASSWORD=#{ePassword},E_TYPE=#{eType},E_NAME=#{eName},E_SEX=#{eSex},
+         E_BIRTHDAY=#{eBirthday},E_PHONE=#{ePhone},E_EMAIL=#{eEmail},E_STATE=#{eState},P_ID=#{position.pId},E_ENTRY=#{eEntry},E_BEFULL=#{eBefull} where E_ID=#{eId}
+    </update>
     <select id="getEmployeeByAccountAndPassword" resultType="Employee">
         select * from T_EMPLOYEE where E_ACCOUNT=#{eAccount} and E_PASSWORD=#{ePassword}
     </select>
@@ -15,6 +23,28 @@
     <select id="getAllEmployees" resultType="com.wuju.model.Employee">
         select * from T_EMPLOYEE
     </select>
+    <select id="getEmployeeBypId" resultMap="empToPos">
+        select * from T_EMPLOYEE where P_ID=#{pId}
+    </select>
+    <select id="getEmployeeByeId" resultMap="empToPos">
+        select * from T_EMPLOYEE where E_ID=#{eId}
+    </select>
+    <select id="getAllEmployeesByLimit" resultMap="empToPos">
+        select E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from
+        (select rownum rn,E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from T_EMPLOYEE
+        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllEmployeesCount" resultType="java.lang.Integer">
+        select count(*) from T_EMPLOYEE
+    </select>
+    <select id="getEmployeeBypIdAndLimit" resultMap="empToPos">
+        select E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from
+        (select rownum rn,E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from T_EMPLOYEE
+        where P_ID=#{pId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getEmployeeCountBypId" resultType="java.lang.Integer">
+        select count(*) from T_EMPLOYEE where P_ID=#{pId}
+    </select>
 
     <resultMap id="empToPos" type="Employee">
         <id property="eId" column="E_ID"/>
@@ -27,6 +57,8 @@
         <result property="ePhone" column="E_PHONE"/>
         <result property="eEmail" column="E_EMAIL"/>
         <result property="eState" column="E_STATE"/>
+        <result property="eEntry" column="E_ENTRY"/>
+        <result property="eBefull" column="E_BEFULL"/>
         <association property="position" javaType="Position"
                      column="P_ID" select="com.wuju.dao.PositionDao.getPositionById">
         </association>

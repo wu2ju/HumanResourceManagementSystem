@@ -20,4 +20,20 @@
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <mvc:interceptors>
+        <!--在完善简历和投递简历的时候，需要判断用户是否登录，没登录则拦截到登录界面-->
+        <mvc:interceptor>
+            <mvc:mapping path="/resume"/>
+            <bean class="com.wuju.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/userInterview"/>
+            <bean class="com.wuju.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/addInterview"/>
+            <bean class="com.wuju.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

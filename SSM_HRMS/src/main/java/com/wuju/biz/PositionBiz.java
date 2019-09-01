@@ -1,5 +1,6 @@
 package com.wuju.biz;
 
+import com.wuju.model.Page;
 import com.wuju.model.Position;
 
 import java.util.HashMap;
@@ -15,4 +16,8 @@ public interface PositionBiz {
     //用于查询该职位下在职的员工
 //    Position getPositionById(int pId);
     List<Position> getAllPositions();
+    List<Position> getPositionByDpName(String dpName);
+    Position getPositionByPName(String pName);
+    Page<Position> getAllPositionsByLimit(int pageNo);
+    Page<Position> getPositionsByDpIdAndLimit(int dpId, int pageNo);
 }

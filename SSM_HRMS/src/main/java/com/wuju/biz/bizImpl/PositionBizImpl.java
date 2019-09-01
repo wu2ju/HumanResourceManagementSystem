@@ -1,10 +1,10 @@
 package com.wuju.biz.bizImpl;
 
 import com.wuju.biz.PositionBiz;
+import com.wuju.dao.DepartmentDao;
 import com.wuju.dao.PositionDao;
-import com.wuju.model.Department;
-import com.wuju.model.Employee;
-import com.wuju.model.Position;
+import com.wuju.dao.RecruitDao;
+import com.wuju.model.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +15,10 @@ import java.util.List;
 public class PositionBizImpl implements PositionBiz {
     @Resource
     private PositionDao positionDao;
+    @Resource
+    private RecruitDao recruitDao;
+    @Resource
+    private DepartmentDao departmentDao;
 
     @Override
     public boolean addPosition(Position p) {
@@ -53,6 +57,11 @@ public class PositionBizImpl implements PositionBiz {
                 return false; // 表明这个职位有员工，此职位不能删除
             }
         }
+        // 删除此职位的招聘信息
+        List<Recruit> recruits = recruitDao.getRecruitByPId(pId);
+        for (Recruit recruit : recruits) {
+            recruitDao.delRecruit(recruit.getRcId());
+        }
         positionDao.delPosition(pId);
         return true;
     }
@@ -67,5 +76,45 @@ public class PositionBizImpl implements PositionBiz {
     @Override
     public List<Position> getAllPositions() {
         return positionDao.getAllPositions();
+    }
+
+    @Override
+    public List<Position> getPositionByDpName(String dpName) {
+        Department d = departmentDao.getDepartmentByDpName(dpName);
+        return positionDao.getPositionByDpId(d.getDpId());
+    }
+
+    @Override
+    public Position getPositionByPName(String pName) {
+        return positionDao.getPositionByPName(pName);
+    }
+
+    @Override
+    public Page<Position> getAllPositionsByLimit(int pageNo) {
+        Page page=new Page<>();
+        int totalRows = positionDao.getAllPositionsCount();
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("start",(pageNo-1)*page.getPageSize() + 1);
+        map.put("end",pageNo * page.getPageSize());
+        List<Position> positions = positionDao.getAllPositionsByLimit(map);
+        page.setPageNo(pageNo);
+        page.setTotalRows(totalRows);
+        page.setList(positions);
+        return page;
+    }
+
+    @Override
+    public Page<Position> getPositionsByDpIdAndLimit(int dpId, int pageNo) {
+        Page page=new Page<>();
+        int totalRows = positionDao.getPositionCountByDpId(dpId);
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("dpId",dpId);
+        map.put("start",(pageNo-1)*page.getPageSize() + 1);
+        map.put("end",pageNo * page.getPageSize());
+        List<Position> positions = positionDao.getPositionByDpIdAndLimit(map);
+        page.setPageNo(pageNo);
+        page.setTotalRows(totalRows);
+        page.setList(positions);
+        return page;
     }
 }

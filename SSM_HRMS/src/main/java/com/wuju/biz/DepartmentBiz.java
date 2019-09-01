@@ -13,5 +13,5 @@ public interface DepartmentBiz {
     Department getDepartmentById(int dpId);
     Department getDepartmentByDpName(String dpName);
     List<Department> getAllDepartments();
-    Page<Department> getAllDepartmentsByLimit();
+    Page<Department> getAllDepartmentsByLimit(int pageNo);
 }

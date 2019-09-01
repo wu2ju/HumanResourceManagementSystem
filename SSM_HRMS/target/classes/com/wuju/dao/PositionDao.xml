@@ -37,6 +37,25 @@
     <select id="getAllPositions" resultType="com.wuju.model.Position">
         select * from T_POSITION
     </select>
+    <select id="getAllPositionsByLimit" resultType="com.wuju.model.Position">
+        select P_ID,P_NAME,P_SALARY,P_LOCATION,P_EXPERIENCE,P_EDUCATION,P_INTRODUCTION,P_REQUEST from
+        (select rownum rn,P_ID,P_NAME,P_SALARY,P_LOCATION,P_EXPERIENCE,P_EDUCATION,P_INTRODUCTION,P_REQUEST from T_POSITION
+        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getPositionByDpIdAndLimit" resultType="com.wuju.model.Position">
+        select P_ID,P_NAME,P_SALARY,P_LOCATION,P_EXPERIENCE,P_EDUCATION,P_INTRODUCTION,P_REQUEST from
+        (select rownum rn,P_ID,P_NAME,P_SALARY,P_LOCATION,P_EXPERIENCE,P_EDUCATION,P_INTRODUCTION,P_REQUEST from T_POSITION
+        where DP_ID=#{dpId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllPositionsCount" resultType="java.lang.Integer">
+        select count(*) from T_POSITION
+    </select>
+    <select id="getPositionCountByDpId" resultType="java.lang.Integer">
+        select count(*) from T_POSITION where DP_ID=#{dpId}
+    </select>
+    <select id="getPositionByDpId" resultType="com.wuju.model.Position">
+        select * from T_POSITION where DP_ID=#{dpId}
+    </select>
 
     <resultMap id="posToDep" type="Position">
         <id property="pId" column="P_ID"/>

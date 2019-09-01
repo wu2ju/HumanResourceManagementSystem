@@ -1,4 +1,46 @@
 ¥¥Ω®–Ú¡–
+create sequence seq_employee
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_notify
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_resumeforiv
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_interview
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_resume
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_user
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_recruit
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
 create sequence seq_depart
 increment by 1
 start with 1

@@ -2,6 +2,7 @@ package com.wuju.dao;
 
 import com.wuju.model.Department;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface DepartmentDao {
@@ -12,4 +13,6 @@ public interface DepartmentDao {
     Department getDepartmentById(int dpId);
     Department getDepartmentByDpName(String dpName);
     List<Department> getAllDepartments();
+    List<Department> getAllDepartmentsByLimit(HashMap map);
+    int getAllDepartmentsCount();
 }

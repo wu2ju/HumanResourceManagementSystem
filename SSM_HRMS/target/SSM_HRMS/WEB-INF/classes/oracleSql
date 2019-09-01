@@ -1,0 +1,32 @@
+创建序列
+create sequence seq_user
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_recruit
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_depart
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+create sequence seq_pos
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
+创建部门表（id,name,创立时间）
+create table t_department(
+dp_id number(4) primary key,
+dp_name varchar2(20),
+dp_establish date,
+cp_id number(4)
+);

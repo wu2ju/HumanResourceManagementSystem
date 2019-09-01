@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.InterviewDao">
+    <insert id="addInterview">
+        insert into T_INTERVIEW values(SEQ_INTERVIEW.nextval,#{recruit.rcId},#{resumeForIV.rId},#{itDeliveryResume},#{itState},
+        #{itTime},#{itAddress},#{employee.eId},#{user.uId})
+    </insert>
+    <update id="updateInterview">
+        update T_INTERVIEW set RC_ID=#{recruit.rcId},R_ID=#{resumeForIV.rId},IT_DELIVERYRESUME=#{itDeliveryResume},
+         IT_STATE=#{itState},IT_TIME=#{itTime},IT_ADDRESS=#{itAddress},E_ID=#{employee.eId},U_ID=#{user.uId} where IT_ID=#{itId}
+    </update>
+    <delete id="delInterview">
+        delete from T_INTERVIEW where IT_ID=#{itId}
+    </delete>
+    <select id="getInterviewById" resultMap="itvToRRE">
+        select * from T_INTERVIEW where IT_ID=#{itId}
+    </select>
+    <select id="getInterviewByuId" resultType="com.wuju.model.Interview">
+        select * from T_INTERVIEW where U_ID=#{uId}
+    </select>
+    <select id="getAllInterviewsByLimit" resultMap="itvToRRE">
+        select IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from
+         (select rownum rn,IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from T_INTERVIEW
+         where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllInterviewsCount" resultType="java.lang.Integer">
+        select count(*) from T_INTERVIEW
+    </select>
+    <select id="getInterviewByStateAndLimit" resultMap="itvToRRE">
+        select IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from
+         (select rownum rn,IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from T_INTERVIEW
+         where IT_STATE=#{itState} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getInterviewCountByState" resultType="java.lang.Integer">
+        select count(*) from T_INTERVIEW where IT_STATE=#{itState}
+    </select>
+    <select id="getInterviewByuIdAndLimit" resultMap="itvToRRE">
+        select IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from
+         (select rownum rn,IT_ID,RC_ID,R_ID,IT_DELIVERYRESUME,IT_STATE,IT_TIME,IT_ADDRESS,E_ID,U_ID from T_INTERVIEW
+         where U_ID=#{uId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getInterviewCountByuId" resultType="java.lang.Integer">
+        select count(*) from T_INTERVIEW where U_ID=#{uId}
+    </select>
+    <select id="getInterviewByrcIdAnduId" resultMap="itvToRRE">
+        select * from T_INTERVIEW where RC_ID=#{rcId} and U_ID=#{uId}
+    </select>
+
+    <resultMap id="itvToRRE" type="Interview">
+        <id property="itId" column="IT_ID"/>
+        <result property="itDeliveryResume" column="IT_DELIVERYRESUME"/>
+        <result property="itState" column="IT_STATE"/>
+        <result property="itTime" column="IT_TIME"/>
+        <result property="itAddress" column="IT_ADDRESS"/>
+        <association property="recruit" column="RC_ID"
+                     javaType="Recruit" select="com.wuju.dao.RecruitDao.getRecruitById"/>
+        <association property="resumeForIV" javaType="ResumeForIV"
+                     column="R_ID" select="com.wuju.dao.ResumeForIVDao.getResumeForIVById"/>
+        <association property="employee" column="E_ID"
+                     javaType="Employee" select="com.wuju.dao.EmployeeDao.getEmployeeByeId"/>
+        <association property="user" column="U_ID"
+                     javaType="User" select="com.wuju.dao.UserDao.getUserById"/>
+    </resultMap>
+</mapper>

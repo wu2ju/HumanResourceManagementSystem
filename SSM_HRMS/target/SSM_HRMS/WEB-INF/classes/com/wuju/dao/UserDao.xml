@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.UserDao">
+    <insert id="addUser">
+        insert into T_USER values (SEQ_USER.nextval,#{uName},#{uPass},#{uPhone})
+    </insert>
+    <select id="getUserByNameAndPass" resultType="com.wuju.model.User">
+        select * from T_USER where U_NAME=#{uName} and U_PASS=#{uPass}
+    </select>
+    <select id="getUser" resultType="com.wuju.model.User"></select>
+    <select id="getAllUsers" resultType="com.wuju.model.User">
+        select * from T_USER
+    </select>
+    <select id="getUserByuName" resultType="com.wuju.model.User">
+        select * from T_USER where U_NAME=#{uName}
+    </select>
+    <select id="getUserById" resultType="com.wuju.model.User">
+        select * from T_USER where U_ID=#{uId}
+    </select>
+</mapper>

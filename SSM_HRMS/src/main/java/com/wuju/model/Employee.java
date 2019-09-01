@@ -14,8 +14,29 @@ public class Employee {
     private String eEmail;
     private Integer eState;
     private Position position;
+    private Date eEntry;
+    private Date eBefull;
 
     public Employee() {
+    }
+
+    public Employee(String eAccount, String ePassword, Integer eType, String eName, String eSex, Date eBirthday, String ePhone, String eEmail, Integer eState, Position position, Date eEntry, Date eBefull) {
+        this.eAccount = eAccount;
+        this.ePassword = ePassword;
+        this.eType = eType;
+        this.eName = eName;
+        this.eSex = eSex;
+        this.eBirthday = eBirthday;
+        this.ePhone = ePhone;
+        this.eEmail = eEmail;
+        this.eState = eState;
+        this.position = position;
+        this.eEntry = eEntry;
+        this.eBefull = eBefull;
+    }
+
+    public Employee(Integer eId) {
+        this.eId = eId;
     }
 
     public Employee(String eAccount, String ePassword, Integer eType) {
@@ -117,6 +138,22 @@ public class Employee {
         this.position = position;
     }
 
+    public Date geteEntry() {
+        return eEntry;
+    }
+
+    public void seteEntry(Date eEntry) {
+        this.eEntry = eEntry;
+    }
+
+    public Date geteBefull() {
+        return eBefull;
+    }
+
+    public void seteBefull(Date eBefull) {
+        this.eBefull = eBefull;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -131,6 +168,8 @@ public class Employee {
                 ", eEmail='" + eEmail + '\'' +
                 ", eState=" + eState +
                 ", position=" + position +
+                ", eEntry=" + eEntry +
+                ", eBefull=" + eBefull +
                 '}';
     }
 }

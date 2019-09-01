@@ -16,10 +16,15 @@
     <title>$</title>
 </head>
 <body>
-<a href="">招聘信息</a>
-<a href="">注册</a>
-<a href="">登录</a>
-<a href="">完善简历</a>
+
+<div>
+    <a href="index.jsp">公司主页</a>
+    <a href="recruitment">招聘信息</a>
+    <a href="firstRegister">注册</a>
+    <a href="userHasCookie">登录</a>
+    <a href="resume">完善简历</a>
+    <a href="userInterview">面试信息</a>
+</div>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.wuju.model.Department" %>
-<%@ page import="com.wuju.model.Position" %><%--
+<%@ page import="com.wuju.model.Position" %>
+<%@ page import="com.wuju.model.Page" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/27
@@ -53,6 +54,28 @@
                 }
             });
 
+            //存储数据dpName，
+            $("#chooseDep").click(function () {
+                sessionStorage.removeItem("dpName");
+                sessionStorage.clear();
+                var dpName = $("#selDp").val();
+                sessionStorage.setItem("dpName",dpName);
+                alert("dpName = " + dpName);
+            });
+            $("a[id^='b']").click(function () {
+                var dpName = sessionStorage.getItem("dpName");
+                if (dpName != null){
+                    $(this)[0].href += ("&dpName="+dpName);
+                    $("input[name=dpName]").val(dpName);
+                }
+            });
+            $("input[id^='b']").click(function () {
+                var dpName = sessionStorage.getItem("dpName");
+                if (dpName != null){
+                    $("input[name=dpName]").val(dpName);
+                }
+            })
+
             /*$("#delBtn").click(function () {
                 var display = $("#div2").css("display");
                 if (display == "none"){
@@ -64,6 +87,8 @@
             })*/
         })
     </script>
+
+
 </head>
 <body>
 <jsp:include page="adminHead.jsp"/>
@@ -100,7 +125,8 @@
 
 <div>
     <form action="position" method="post">
-        <select name="dpName">
+        <select id="selDp" name="dpName">
+            <option></option>
             <%
                 for (Department department : departments) {
             %>
@@ -109,9 +135,10 @@
                 }
             %>
         </select>
-        <input type="submit" value="选择部门">
+        <input id="chooseDep" type="submit" value="选择部门">
     </form>
 </div>
+    <td><p style="color: red">${str}</p></td>
 <%--显示部门下所有职位--%>
 <fieldset>
     <legend>职位</legend>
@@ -128,8 +155,10 @@
             <th>删除</th>
         </tr>
         <%
-            List<Position> positions = (List<Position>) request.getAttribute("positions");
-            for (Position position : positions) {
+//            List<Position> positions = (List<Position>) request.getAttribute("positions");
+            Page<Position> positionPage = (Page<Position>) request.getAttribute("positionPage");
+            if (positionPage.getList() != null && positionPage.getList().size() > 0){
+                for (Position position : positionPage.getList()) {
         %>
 
         <tr>
@@ -148,16 +177,32 @@
             <%--<td><a href="delDep?dpId=<%=department.getDpId()%>">删除</a></td>--%>
             <td><input id="delBtn" type="button" value="删除" onclick="delPosition(<%=position.getpId()%>)"></td>
             <%--<td><button id="delBtn" type="button" value="删除" ></button></td>--%>
-            <td><a href="employee?pId=<%=position.getpId()%>">员工信息</a></td>
-            <td><p style="color: red">${str}</p></td>
+            <td><a href="eEmployee?pId=<%=position.getpId()%>">员工信息</a></td>
+
         </tr>
 
         <%
+            }
             }
         %>
     </table>
 </fieldset>
 
+    <div class="div4">
+        <span>共 <%=positionPage.getTotalPage()%> 页</span>
+        <span>当前在第 <%=positionPage.getPageNo()%> 页</span>
+        <span><a id="b1" class="aPageState" href="position?pageNo=1">首页</a></span>
+        <span><a id="b2" class="aPageState" href="position?pageNo=<%=positionPage.getPrevPage()%>">上一页</a></span>
+        <span><a id="b3" class="aPageState" href="position?pageNo=<%=positionPage.getNextPage()%>">下一页</a></span>
+        <span><a id="b4" class="aPageState" href="position?pageNo=<%=positionPage.getTotalPage()%>">尾页</a></span>
+
+        <form action="position"  onsubmit="return checkNum(this.children[1].value)">
+            <span>跳转到</span><input name="pageNo">
+            <input type="hidden" name="dpName" value="">
+            <input id="b5" type="submit" value="跳转">
+        </form>
+
+    </div>
 </div>
 </body>
 </html>

@@ -14,6 +14,13 @@ public class Position {
     private Department department;
     private List<Employee> employees;
 
+    public Position() {
+    }
+
+    public Position(Integer pId) {
+        this.pId = pId;
+    }
+
     public Integer getpId() {
         return pId;
     }

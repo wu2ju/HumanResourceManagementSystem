@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.ResumeForIVDao">
+    <insert id="addResumeForIV">
+        <selectKey order="BEFORE" keyProperty="rId" resultType="Integer">
+            select SEQ_RESUMEFORIV.nextval from dual
+        </selectKey>
+        insert into T_RESUME_FOR_IV values(#{rId},#{rName},#{rSex},#{rBirthday},#{rWorktime},#{rSchool},#{rEducation},#{rMajor},#{rAdmission},#{rGraduation},
+        #{rSchoolexp},#{rCompany},#{rJob},#{rAbility},#{rEntry},#{rQuit},#{rHopejob},#{rSalary},#{rIndustry},#{rLocation},#{rFeature},#{user.uId})
+    </insert>
+
+    <delete id="delResumeForIV">
+        delete from T_RESUME_FOR_IV where R_ID=#{rId}
+    </delete>
+    <select id="getResumeForIVById" resultMap="resToUser">
+        select * from T_RESUME_FOR_IV where R_ID=#{rId}
+    </select>
+    <select id="getResumeForIVByuId" resultMap="resToUser">
+        select * from T_RESUME_FOR_IV where U_ID=#{uId}
+    </select>
+
+    <resultMap id="resToUser" type="ResumeForIV">
+        <id property="rId" column="R_ID"/>
+        <result property="rName" column="R_NAME"/>
+        <result property="rSex" column="R_SEX"/>
+        <result property="rBirthday" column="R_BIRTHDAY"/>
+        <result property="rWorktime" column="R_WORKTIME"/>
+        <result property="rSchool" column="R_SCHOOL"/>
+        <result property="rEducation" column="R_EDUCATION"/>
+        <result property="rMajor" column="R_MAJOR"/>
+        <result property="rAdmission" column="R_ADMISSION"/>
+        <result property="rGraduation" column="R_GRADUATION"/>
+        <result property="rSchoolexp" column="R_SCHOOLEXP"/>
+        <result property="rCompany" column="R_COMPANY"/>
+        <result property="rJob" column="R_JOB"/>
+        <result property="rAbility" column="R_ABILITY"/>
+        <result property="rEntry" column="R_ENTRY"/>
+        <result property="rQuit" column="R_QUIT"/>
+        <result property="rHopejob" column="R_HOPEJOB"/>
+        <result property="rSalary" column="R_SALARY"/>
+        <result property="rIndustry" column="R_INDUSTRY"/>
+        <result property="rLocation" column="R_LOCATION"/>
+        <result property="rFeature" column="R_FEATURE"/>
+        <association property="user" javaType="User" column="U_ID" select="com.wuju.dao.UserDao.getUserById"/>
+    </resultMap>
+</mapper>

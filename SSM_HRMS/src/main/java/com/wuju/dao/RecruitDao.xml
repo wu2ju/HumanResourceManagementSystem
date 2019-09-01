@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.RecruitDao">
+    <insert id="addRecruit">
+        insert into T_RECRUIT values(SEQ_RECRUIT.nextval,#{rcRelease},#{rcDeadline},#{rcState},#{rcBackout},#{position.pId},#{department.dpId})
+    </insert>
+    <update id="updateRecruit">
+        update T_RECRUIT set RC_RELEASE=#{rcRelease},RC_DEADLINE=#{rcDeadline},RC_STATE=#{rcState},RC_BACKOUT=#{rcBackout},P_ID=#{position.pId},DP_ID=#{department.dpId} where RC_ID=#{rcId}
+    </update>
+    <delete id="delRecruit">
+        delete from T_RECRUIT where RC_ID=#{rcId}
+    </delete>
+    <select id="getRecruitById" resultMap="recToPos">
+        select * from T_RECRUIT where RC_ID=#{rcId}
+    </select>
+    <select id="getAllRecruits" resultType="com.wuju.model.Recruit">
+        select * from T_RECRUIT
+    </select>
+    <select id="getAllRecruitsByLimit" resultMap="recToPos">
+        select RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID
+        from (select rownum rn,RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID from T_RECRUIT
+        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllRecruitsCount" resultType="java.lang.Integer">
+        select count(*) from T_RECRUIT
+    </select>
+    <select id="getRecruitByDpIdAndStateAndLimit" resultMap="recToPos">
+        select RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID
+        from (select rownum rn,RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID from T_RECRUIT
+        where DP_ID=#{dpId} and RC_STATE=#{rcState} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getRecruitCountByDpIdAndState" resultType="java.lang.Integer">
+        select count(*) from T_RECRUIT where DP_ID=#{dpId} and RC_STATE=#{rcState}
+    </select>
+    <select id="getRecruitByPId" resultType="com.wuju.model.Recruit">
+        select * from T_RECRUIT where P_ID=#{pId}
+    </select>
+    <select id="getRecruitByRcStateAndLimit" resultMap="recToPos">
+        select RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID
+        from (select rownum rn,RC_ID,RC_RELEASE,RC_DEADLINE,RC_STATE,RC_BACKOUT,P_ID,DP_ID from T_RECRUIT
+        where RC_STATE=#{rcState} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getRecruitCountByRcState" resultType="java.lang.Integer">
+        select count(*) from T_RECRUIT where RC_STATE=#{rcState}
+    </select>
+
+    <resultMap id="recToPos" type="Recruit">
+        <id property="rcId" column="RC_ID"/>
+        <result property="rcRelease" column="RC_RELEASE"/>
+        <result property="rcDeadline" column="RC_DEADLINE"/>
+        <result property="rcState" column="RC_STATE"/>
+        <result property="rcBackout" column="RC_BACKOUT"/>
+        <association property="position" javaType="Position"
+                     column="P_ID" select="com.wuju.dao.PositionDao.getPositionById">
+            <!--<id property="pId" column="P_ID"/>
+            <result property="pName" column="P_NAME"/>
+            <result property="pSalary" column="P_SALARY"/>
+            <result property="pLocation" column="P_LOCATION"/>
+            <result property="pExperience" column="P_EXPERIENCE"/>
+            <result property="pEducation" column="P_EDUCATION"/>
+            <result property="pIntroduction" column="P_INTRODUCTION"/>
+            <result property="pRequest" column="P_REQUEST"/>-->
+        </association>
+        <association property="department" javaType="Department"
+                     column="DP_ID" select="com.wuju.dao.DepartmentDao.getDepartmentById">
+            <!--<id property="dpId" column="DP_ID"/>
+            <result property="dpName" column="DP_NAME"/>
+            <result property="dpEstablish" column="DP_ESTABLISH"/>-->
+        </association>
+    </resultMap>
+</mapper>

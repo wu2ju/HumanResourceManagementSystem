@@ -16,4 +16,9 @@ public interface PositionDao {
     Position getPositionById(int pId);
     Position getPositionByPName(String pName);
     List<Position> getAllPositions();
+    List<Position> getPositionByDpId(int dpId);
+    List<Position> getAllPositionsByLimit(HashMap map);
+    int getAllPositionsCount();
+    List<Position> getPositionByDpIdAndLimit(HashMap map);
+    int getPositionCountByDpId(int dpId);
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.ResumeDao">
+    <insert id="addResume">
+        insert into T_RESUME values(SEQ_RESUME.nextval,#{rName},#{rSex},#{rBirthday},#{rWorktime},#{rSchool},#{rEducation},#{rMajor},#{rAdmission},#{rGraduation},
+        #{rSchoolexp},#{rCompany},#{rJob},#{rAbility},#{rEntry},#{rQuit},#{rHopejob},#{rSalary},#{rIndustry},#{rLocation},#{rFeature},#{user.uId})
+    </insert>
+    <update id="updateResume">
+        update T_RESUME set  R_NAME=#{rName},R_SEX=#{rSex},R_BIRTHDAY=#{rBirthday},R_WORKTIME=#{rWorktime},R_SCHOOL=#{rSchool},R_EDUCATION=#{rEducation},
+         R_MAJOR=#{rMajor},R_ADMISSION=#{rAdmission},R_GRADUATION=#{rGraduation},R_SCHOOLEXP=#{rSchoolexp},R_COMPANY=#{rCompany},R_JOB=#{rJob},R_ABILITY=#{rAbility},
+         R_ENTRY=#{rEntry},R_QUIT=#{rQuit},R_HOPEJOB=#{rHopejob},R_SALARY=#{rSalary},R_INDUSTRY=#{rIndustry},R_LOCATION=#{rLocation},R_FEATURE=#{rFeature},U_ID=#{user.uId} where R_ID=#{rId}
+    </update>
+    <delete id="delResume">
+        delete from T_RESUME where R_ID=#{rId}
+    </delete>
+    <select id="getResumeById" resultMap="resToUser">
+        select * from T_RESUME where R_ID=#{rId}
+    </select>
+    <select id="getResumeByuId" resultMap="resToUser">
+        select * from T_RESUME where U_ID=#{uId}
+    </select>
+
+    <resultMap id="resToUser" type="Resume">
+        <id property="rId" column="R_ID"/>
+        <result property="rName" column="R_NAME"/>
+        <result property="rSex" column="R_SEX"/>
+        <result property="rBirthday" column="R_BIRTHDAY"/>
+        <result property="rWorktime" column="R_WORKTIME"/>
+        <result property="rSchool" column="R_SCHOOL"/>
+        <result property="rEducation" column="R_EDUCATION"/>
+        <result property="rMajor" column="R_MAJOR"/>
+        <result property="rAdmission" column="R_ADMISSION"/>
+        <result property="rGraduation" column="R_GRADUATION"/>
+        <result property="rSchoolexp" column="R_SCHOOLEXP"/>
+        <result property="rCompany" column="R_COMPANY"/>
+        <result property="rJob" column="R_JOB"/>
+        <result property="rAbility" column="R_ABILITY"/>
+        <result property="rEntry" column="R_ENTRY"/>
+        <result property="rQuit" column="R_QUIT"/>
+        <result property="rHopejob" column="R_HOPEJOB"/>
+        <result property="rSalary" column="R_SALARY"/>
+        <result property="rIndustry" column="R_INDUSTRY"/>
+        <result property="rLocation" column="R_LOCATION"/>
+        <result property="rFeature" column="R_FEATURE"/>
+        <association property="user" javaType="User" column="U_ID" select="com.wuju.dao.UserDao.getUserById"/>
+    </resultMap>
+</mapper>

@@ -5,10 +5,7 @@ import com.wuju.biz.PositionBiz;
 import com.wuju.dao.CompanyDao;
 import com.wuju.dao.DepartmentDao;
 import com.wuju.dao.PositionDao;
-import com.wuju.model.Company;
-import com.wuju.model.Department;
-import com.wuju.model.Employee;
-import com.wuju.model.Position;
+import com.wuju.model.*;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -130,5 +127,19 @@ public class DepartmentBizImpl implements DepartmentBiz {
     @Override
     public List<Department> getAllDepartments() {
         return departmentDao.getAllDepartments();
+    }
+
+    @Override
+    public Page<Department> getAllDepartmentsByLimit(int pageNo) {
+        Page page=new Page<>();
+        int totalRows = departmentDao.getAllDepartmentsCount();
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("start",(pageNo-1)*page.getPageSize() + 1);
+        map.put("end",pageNo * page.getPageSize());
+        List<Department> departments = departmentDao.getAllDepartmentsByLimit(map);
+        page.setPageNo(pageNo);
+        page.setTotalRows(totalRows);
+        page.setList(departments);
+        return page;
     }
 }

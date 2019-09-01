@@ -31,6 +31,13 @@
     <select id="getAllDepartments" resultType="com.wuju.model.Department">
         select * from T_DEPARTMENT
     </select>
+    <select id="getAllDepartmentsByLimit" resultType="com.wuju.model.Department">
+        select DP_ID,DP_NAME,DP_ESTABLISH from
+        (select rownum rn,DP_ID,DP_NAME,DP_ESTABLISH from T_DEPARTMENT where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllDepartmentsCount" resultType="java.lang.Integer">
+        select count(*) from T_DEPARTMENT
+    </select>
 
     <resultMap id="depToComp" type="Department">
         <id property="dpId" column="DP_ID"/>
