@@ -1,9 +1,6 @@
 package com.wuju.controller;
 
-import com.wuju.biz.DepartmentBiz;
-import com.wuju.biz.EmployeeBiz;
-import com.wuju.biz.PositionBiz;
-import com.wuju.biz.RecruitBiz;
+import com.wuju.biz.*;
 import com.wuju.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +23,66 @@ public class EmployeeController {
     private DepartmentBiz departmentBiz;
     @Resource
     private PositionBiz positionBiz;
+    @Resource
+    private TrainObjectBiz trainObjectBiz;
+    @Resource
+    private TrainBiz trainBiz;
 
+
+    @RequestMapping("eTrain")
+    public String eTrain(Integer pageNo, Integer eId, HttpSession session, Model model){
+        // 员工登录之后查看员工的培训通知
+        Employee e = (Employee) session.getAttribute("e");
+        if(pageNo == null || pageNo < 1){
+            pageNo=1;
+        }
+        Page<Train> trainPage = new Page<>();
+        // 员工
+        if (e.geteType() == 1){
+            Employee employeeWithTrain = (Employee) session.getAttribute("employeeWithTrain");
+            //培训通知被点击之后，就不许再出现
+            if (employeeWithTrain != null){
+                if (e.geteId() == employeeWithTrain.geteId()){
+                    List<Train> trains = employeeWithTrain.getTrains();
+                    if (trains != null && trains.size() > 0) {
+                        for (Train train : trains) {
+                            TrainObject trainObject = trainObjectBiz.getTrainObjectByeIdAndTrIdAndToState(e.geteId(), train.getTrId(),1);
+                            if (trainObject != null){
+                                trainObject.setToState(2);
+                                trainObjectBiz.updateTrainObjectToState(trainObject);
+                                //更新培训通知不出现
+                                session.removeAttribute("employeeWithTrain");
+                            }
+                        }
+                    }
+                }
+            }
+            // 显示到eTrain.jsp的数据
+            trainPage = trainBiz.getTrainByeIdAndTrStateAndLimit(e.geteId(), 2, pageNo);
+        }else {
+            // 管理员要么查看所有的培训记录，或者某个员工的培训记录
+            if (eId == null){
+                trainPage = trainBiz.getAllTrainsByLimit(pageNo);
+            }else {
+                trainPage = trainBiz.getTrainByeIdAndLimit(eId, pageNo);
+            }
+            List<Employee> employees = employeeBiz.getAllEmployees();
+            model.addAttribute("employees",employees);
+        }
+        model.addAttribute("trainPage",trainPage);
+
+        /*Employee employeeWithTrain1 = employeeBiz.getEmployeeByeIdAndTrState(e.geteId(), 2);
+        // 查看到该员工已经发布的培训
+        List<Train> trains = employeeWithTrain1.getTrains();
+        if (trains != null && trains.size() > 0){
+            for (Train train : trains) {
+                // 把培训对象放进去
+                train.setEmployees(trainBiz.getTrainById(train.getTrId()).getEmployees());
+            }
+            model.addAttribute("trains",trains);
+        }*/
+        return "eTrain";
+    }
 
     @RequestMapping("eEmployee")
     public String eEmployee(Integer pageNo, Position position, HttpSession session, Model model){
@@ -40,11 +96,13 @@ public class EmployeeController {
             pageNo=1;
         }
         Page<Employee> employeePage = new Page<>();
-        if (position.getpId() == null && position.getpName() == null){
+        System.out.println("eEmployee: " + position);
+        if (position == null || position.getpId() == null && (position.getpName() == null || position.getpName().equals("null"))){
             employeePage = employeeBiz.getAllEmployeesByLimit(pageNo);
         }else {
             employeePage = employeeBiz.getEmployeeBypIdOrpNameAndLimit(position, pageNo);
         }
+        System.out.println("eEmployee: " + employeePage);
         model.addAttribute("employeePage",employeePage);
         return "eEmployee";
     }

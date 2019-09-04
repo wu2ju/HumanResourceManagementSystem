@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.wuju.model.Employee" %>
+<%@ page import="com.wuju.model.Train" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/23
@@ -17,6 +19,18 @@
 </head>
 <body>
 <jsp:include page="employeeHead.jsp"/>
+
+<%
+    Employee employeeWithTrain = (Employee) session.getAttribute("employeeWithTrain");
+    if (employeeWithTrain != null){
+    List<Train> trains = employeeWithTrain.getTrains();
+    if (trains != null && trains.size() > 0){
+        %>
+<a href="eTrain" style="color: red">培训通知</a>
+<%
+    }
+    }
+%>
 <div>
     <fieldset>
         <legend>个人信息</legend>

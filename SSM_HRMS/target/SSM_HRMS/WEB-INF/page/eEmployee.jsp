@@ -37,7 +37,7 @@
             if (pName != null){
                 $("input[name=pName]").val(pName);
             }
-        })
+        });
 
         //    ajax实现二级联动
             $("#selDep").change(function () {
@@ -55,15 +55,105 @@
                         $("#selPos").html(tableHtml);
                     }
                 })
-            })
+            });
+
+            $(".changePos").click(function () {
+                sessionStorage.removeItem("eId");
+                sessionStorage.clear();
+                var eId = $(this)[0].name;
+                sessionStorage.setItem("eId",eId);
+                var display = $("#div3").css("display");
+                if (display == "none"){
+                    $("#div3").css("display","block");
+                }else {
+                    $("#div3").css("display", "none");
+                }
+            });
+
+            $(".leavePos").click(function () {
+                sessionStorage.removeItem("eId2");
+                sessionStorage.clear();
+                var eId2 = $(this)[0].name;
+                sessionStorage.setItem("eId2",eId2);
+                var display = $("#div5").css("display");
+                if (display == "none"){
+                    $("#div5").css("display","block");
+                }else {
+                    $("#div5").css("display", "none");
+                }
+            });
+
+            //    ajax实现二级联动，选择部门，选择职位
+            $("#selDep1").change(function () {
+                var dpName = $(this).val();
+                $("#selEmp1").html("");
+                $.ajax({
+                    type:"post",
+                    url:"getPositionByDpName",
+                    data:{"dpName":dpName},
+                    success:function (obj) {
+                        //返回为列表，列表里是List<Position.pName>
+                        var tableHtml = "";
+                        for (var i in obj){
+                            tableHtml += ("<option>"+ obj[i] +"</option>");
+                        }
+                        $("#selPos1").html(tableHtml);
+                    }
+                })
+            });
+
+            $("#changePos2").click(function () {
+                var pName = $("#selPos1").val();
+                var dpName = $("#selDep1").val();
+                var eId = sessionStorage.getItem("eId");
+                $.ajax({
+                    type:"post",
+                    url:"changeEmployeePosition",
+                    data:{"pName":pName,"eId":eId},
+                    success:function (obj) {
+                        //将该账号的员工添加到培训对象中
+                        alert(obj);
+                    }
+                })
+            });
+
+            $("#leavePos2").click(function () {
+                var qtReason = $("#qtReason").val();
+                var eId2 = sessionStorage.getItem("eId2");
+                $.ajax({
+                    type:"post",
+                    url:"retireEmployee",
+                    data:{"qtReason":qtReason,"eId":eId2},
+                    success:function (obj) {
+                        //将该账号的员工添加到培训对象中
+                        alert(obj);
+                    }
+                })
+            });
         })
     </script>
 
 
 </head>
 <body>
-<jsp:include page="adminHead.jsp"/>
-<jsp:include page="eHead.jsp"/>
+<div>
+    <%
+        Employee e1 = (Employee) session.getAttribute("e");
+        if (e1.geteType() == 1){
+    %>
+    <jsp:include page="employeeHead.jsp"/>
+    <a href="eDepartment">部门信息</a>
+    <a href="ePosition">职位信息</a>
+    <a href="eEmployee">员工信息</a>
+    <%
+        }else {
+            %>
+    <jsp:include page="adminHead.jsp"/>
+    <%
+        }
+    %>
+</div>
+
 <div>
 
 <div id="div1">
@@ -87,9 +177,31 @@
     <br>
 </div>
 
+    <div id="div3" style="display: none">
+        部门名称：<select id="selDep1" name="dpName">
+        <option></option>
+        <%
+            for (Department department : departments) {
+        %>
+        <option><%=department.getDpName()%></option>
+        <%
+            }
+        %>
+    </select>
+        职位名称：<select id="selPos1" name="pName">
+    </select>
+    </select><br>
+        <input id="changePos2" type="button" value="确定职位">
+    </div>
+
+    <div id="div5" style="display: none">
+        下岗原因：<textarea id="qtReason"></textarea>
+        <input id="leavePos2" type="button" value="确定该员工下岗">
+    </div>
+
 
 <fieldset>
-    <legend>招聘信息</legend>
+    <legend>员工信息</legend>
     <table>
         <tr>
             <th>名字</th>
@@ -97,6 +209,8 @@
             <th>出生日期</th>
             <th>电话</th>
             <th>邮箱</th>
+            <th>状态(0 试用期 1 正式职工 2 离职)</th>
+            <th>操作</th>
         </tr>
         <%
             Page<Employee> employeePage = (Page<Employee>) request.getAttribute("employeePage");
@@ -106,11 +220,29 @@
         %>
 
         <tr>
-                <td><%=employee.geteName()%></td>
-                <td><%=employee.geteSex()%></td>
-                <td><%=employee.geteBirthday()%></td>
-                <td><%=employee.getePhone()%></td>
-                <td><%=employee.geteEmail()%></td>
+            <td><%=employee.geteName()%></td>
+            <td><%=employee.geteSex()%></td>
+            <td><%=employee.geteBirthday()%></td>
+            <td><%=employee.getePhone()%></td>
+            <td><%=employee.geteEmail()%></td>
+            <td><%=employee.geteState()%></td>
+
+            <%
+                if (e1.geteType() == 0 ){
+                    if (employee.geteState() != 2){
+                        %>
+            <td><input class="changePos" name="<%=employee.geteId()%>" type="button" value="换岗"></td>
+            <td><input class="leavePos" name="<%=employee.geteId()%>" type="button" value="下岗"></td>
+            <%
+                    }
+                    %>
+            <td><a href="eTrain?eId=<%=employee.geteId()%>">培训</a></td>
+            <td><a href="eCheckInLog?eId=<%=employee.geteId()%>">考勤</a></td>
+            <td><a href="eTrain?eId=<%=employee.geteId()%>">薪资</a></td>
+            <%
+                }
+            %>
+
         </tr>
         <%
                     }

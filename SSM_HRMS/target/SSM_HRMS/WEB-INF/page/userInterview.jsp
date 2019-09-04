@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<%--<%@include file="recruitHead.jsp"%>--%>
 <jsp:include page="recruitHead.jsp"/>
 <div>
     <%--显示投递简历之后的面试消息--%>

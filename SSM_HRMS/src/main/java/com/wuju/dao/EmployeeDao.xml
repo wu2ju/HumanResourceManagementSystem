@@ -21,21 +21,26 @@
         </where>
     </select>
     <select id="getAllEmployees" resultType="com.wuju.model.Employee">
-        select * from T_EMPLOYEE
+        select * from T_EMPLOYEE where E_TYPE=1
     </select>
     <select id="getEmployeeBypId" resultMap="empToPos">
         select * from T_EMPLOYEE where P_ID=#{pId}
     </select>
     <select id="getEmployeeByeId" resultMap="empToPos">
-        select * from T_EMPLOYEE where E_ID=#{eId}
+        select e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL,
+        tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE
+        from
+        (T_EMPLOYEE e left join T_TRAINOBJECT tob on e.E_ID=tob.E_ID)
+        left join T_TRAIN tr on tr.TR_ID=tob.TR_ID
+        where e.E_ID=#{eId}
     </select>
     <select id="getAllEmployeesByLimit" resultMap="empToPos">
         select E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from
         (select rownum rn,E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from T_EMPLOYEE
-        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+        where E_TYPE=1 and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
     </select>
     <select id="getAllEmployeesCount" resultType="java.lang.Integer">
-        select count(*) from T_EMPLOYEE
+        select count(*) from T_EMPLOYEE where E_TYPE=1
     </select>
     <select id="getEmployeeBypIdAndLimit" resultMap="empToPos">
         select E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,P_ID,E_ENTRY,E_BEFULL from
@@ -45,6 +50,27 @@
     <select id="getEmployeeCountBypId" resultType="java.lang.Integer">
         select count(*) from T_EMPLOYEE where P_ID=#{pId}
     </select>
+    <select id="getEmployeeByeAccount" resultMap="empToPos">
+        select * from T_EMPLOYEE where E_ACCOUNT=#{eAccount}
+    </select>
+    <!--注意这个Train为主表，慎用-->
+    <select id="getEmployeeByeIdAndToStateAndTrState" resultMap="empToPos">
+        select e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL,
+        tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE
+        from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+        left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+        where e.E_ID=#{eId} and tob.TO_STATE=#{toState} and tr.TR_STATE=#{trState}
+    </select>
+    <!--注意这个Train为主表，本项目中这个get用getTrainByeIdAndTrState代替了-->
+    <select id="getEmployeeByeIdAndTrState" resultMap="empToPos">
+        select e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL,
+        tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE
+        from
+        T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
+        where tr.TR_ID=tob.TR_ID and e.E_ID=tob.E_ID and e.E_ID=#{eId} and tr.TR_STATE=#{trState}
+    </select>
+
 
     <resultMap id="empToPos" type="Employee">
         <id property="eId" column="E_ID"/>
@@ -62,6 +88,15 @@
         <association property="position" javaType="Position"
                      column="P_ID" select="com.wuju.dao.PositionDao.getPositionById">
         </association>
+        <collection property="trains" ofType="Train">
+            <id property="trId" column="TR_ID"/>
+            <result property="trTheme" column="TR_THEME"/>
+            <result property="trContent" column="TR_CONTENT"/>
+            <result property="trBegin" column="TR_BEGIN"/>
+            <result property="trEnd" column="TR_END"/>
+            <result property="trState" column="TR_STATE"/>
+            <result property="trRelease" column="TR_RELEASE"/>
+        </collection>
     </resultMap>
 
 </mapper>

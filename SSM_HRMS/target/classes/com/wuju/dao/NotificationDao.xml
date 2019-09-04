@@ -2,9 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wuju.dao.NotificationDao">
     <insert id="addNotification">
-        insert into T_NOTIFICATION values(SEQ_NOTIFY.nextval,#{ntAccount},#{ntPassword},#{user.uId})
+        insert into T_NOTIFICATION values(SEQ_NOTIFY.nextval,#{ntAccount},#{ntPassword},#{user.uId},#{ntState})
     </insert>
-    <select id="getNotificationByuId" resultType="com.wuju.model.Notification">
+    <update id="updateNotification">
+        update T_NOTIFICATION set NT_STATE=#{ntState} where U_ID=#{user.uId}
+    </update>
+    <select id="getNotificationByuId" resultMap="notToUser">
         select * from T_NOTIFICATION where U_ID=#{uId}
     </select>
+    <select id="getNotificationByuIdAndNtState" resultMap="notToUser">
+        select * from T_NOTIFICATION where U_ID=#{uId} and NT_STATE=#{ntState}
+    </select>
+
+    <resultMap id="notToUser" type="Notification">
+        <id property="ntId" column="NT_ID"/>
+        <result property="ntAccount" column="NT_ACCOUNT"/>
+        <result property="ntPassword" column="NT_PASSWORD"/>
+        <result property="ntState" column="NT_STATE"/>
+        <association property="user" javaType="User" column="U_ID" select="com.wuju.dao.UserDao.getUserById"/>
+    </resultMap>
 </mapper>

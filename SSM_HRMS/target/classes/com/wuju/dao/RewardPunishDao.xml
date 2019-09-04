@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.RewardPunishDao">
+    <insert id="addRewardPunish">
+        <selectKey keyProperty="rpId" order="BEFORE" resultType="integer">
+            select SEQ_REWARDPUNISH.nextval from dual
+        </selectKey>
+        insert into T_REWARDPUNISH values (#{rpId},#{rpTime},#{rpReason},#{employee.eId},#{rpRecord},#{rpMoney})
+    </insert>
+    <update id="updateRewardPunish">
+        update T_REWARDPUNISH set RP_TIME=#{rpTime},RP_REASON=#{rpReason},E_ID=#{employee.eId},RP_RECORD=#{rpRecord},RP_MONEY=#{rpMoney} where RP_ID=#{rpId}
+    </update>
+    <delete id="delRewardPunish">
+        delete from T_REWARDPUNISH where RP_ID=#{rpId}
+    </delete>
+    <select id="getRewardPunishById" resultMap="repToEmp">
+        select * from T_REWARDPUNISH where RP_ID=#{rpId}
+    </select>
+    <select id="getAllRewardPunishs" resultMap="repToEmp">
+        select * from T_REWARDPUNISH
+    </select>
+    <select id="getRewardPunishByeIdAndRpTimeAndRpRecord" resultMap="repToEmp">
+        select * from T_REWARDPUNISH where E_ID=#{eId} and to_char(RP_TIME,'YYYY-MM-DD')=to_char(sysdate,'YYYY-MM-DD')
+         and RP_RECORD=#{rpRecord}
+    </select>
+    <select id="getRewardPunishByeIdAndLimit" resultMap="repToEmp">
+        select RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from
+         (select rownum rn,RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from T_REWARDPUNISH
+          where E_ID=#{eId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getRewardPunishCountByeId" resultType="java.lang.Integer">
+        select count(*) from T_REWARDPUNISH where E_ID=#{eId}
+    </select>
+    <select id="getAllRewardPunishByLimit" resultType="com.wuju.model.RewardPunish">
+        select RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from
+         (select rownum rn,RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from T_REWARDPUNISH
+          where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllRewardPunishCount" resultType="java.lang.Integer">
+        select count(*) from T_REWARDPUNISH
+    </select>
+
+    <resultMap id="repToEmp" type="RewardPunish">
+        <id property="rpId" column="RP_ID"/>
+        <result property="rpTime" column="RP_TIME"/>
+        <result property="rpReason" column="RP_REASON"/>
+        <association property="employee" column="E_ID" javaType="Employee"
+                     select="com.wuju.dao.EmployeeDao.getEmployeeByeId"/>
+    </resultMap>
+</mapper>

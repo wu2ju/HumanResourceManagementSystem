@@ -84,4 +84,14 @@ public class Page<T> {
         }
         return pageNo;
     }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "pageNo=" + pageNo +
+                ", totalRows=" + totalRows +
+                ", pageSize=" + pageSize +
+                ", list=" + list +
+                '}';
+    }
 }

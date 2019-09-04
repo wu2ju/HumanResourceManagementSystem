@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.TrainDao">
+    <insert id="addTrain">
+<selectKey keyProperty="trId" order="BEFORE" resultType="integer">
+    select SEQ_TRAIN.nextval from dual
+</selectKey>
+        insert into T_TRAIN values(#{trId},#{trTheme},#{trContent},#{trBegin},#{trEnd},#{trState},#{trRelease})
+    </insert>
+    <update id="updateTrain">
+        update T_TRAIN set TR_THEME=#{trTheme},TR_CONTENT=#{trContent},TR_BEGIN=#{trBegin},TR_END=#{trEnd},TR_STATE=#{trState},TR_RELEASE=#{trRelease} where TR_ID=#{trId}
+    </update>
+    <delete id="delTrain">
+        delete from T_TRAIN where TR_ID=#{trId}
+    </delete>
+    <!--<select id="getTrainById" resultMap="traToEmp">
+        select tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
+        where tr.TR_ID=tob.TR_ID and e.E_ID=tob.E_ID and tr.TR_ID=#{trId}
+    </select>-->
+    <!--外连接三表查询-->
+    <select id="getTrainById" resultMap="traToEmp">
+        select tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+         left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+         where tr.TR_ID=#{trId}
+    </select>
+    <select id="getAllTrains" resultMap="traToEmp">
+        select tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
+        where tr.TR_ID=tob.TR_ID and e.E_ID=tob.E_ID
+    </select>
+    <!--外连接查询-->
+    <!--<select id="getAllTrains" resultMap="traToEmp">
+        select tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+         left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+    </select>-->
+    <!--外连接加上分页查询 错-->
+    <!--<select id="getAllTrainsByLimit" resultMap="traToEmp">
+        select tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL from
+        (select rownum rn, tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+         left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+         where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>-->
+    <!--外连接加上分页查询 对-->
+    <!--<select id="getAllTrainsByLimit" resultMap="traToEmp">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn, tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+         left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+         where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>-->
+    <!--简单的外连接加上分页查询 对了，但是不是想要的结果，我只想要半个外连接，查询的employee是列表-->
+    <!--<select id="getAllTrainsByLimit" resultMap="traToEmp">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn,tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
+        where tr.TR_ID=tob.TR_ID and e.E_ID(+)=tob.E_ID and
+        <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>-->
+    <!--内链接用分页查询，一个培训对应多个员工，会出现重复的培训，同时没有培训对象的培训就查不出来-->
+    <!--<select id="getAllTrainsByLimit" resultMap="traToEmp">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn,tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from
+        T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
+        where tr.TR_ID=tob.TR_ID and e.E_ID=tob.E_ID and
+        <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>-->
+    <select id="getAllTrainsByLimit" resultMap="traToEmp">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn, tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE,
+        e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL
+        from (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+         left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+         where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <!--多表联查加分页不能用，此时可以用，看情况而定，因为此时一个培训中员工不能重复-->
+    <select id="getTrainByeIdAndTrStateAndLimit" resultMap="traToEmp">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn, e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL,
+        tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE
+        from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+        left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+        where e.E_ID=#{eId} and tr.TR_STATE=#{trState} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getTrainCountByeIdAndTrState" resultType="java.lang.Integer">
+        select count(*) from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+        left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+        where e.E_ID=#{eId} and tr.TR_STATE=#{trState}
+    </select>
+    <select id="getAllTrainsCount" resultType="java.lang.Integer">
+        select count(*) from T_TRAIN
+    </select>
+    <select id="getAllTrainsByLimitOne" resultType="com.wuju.model.Train">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE from
+        (select rownum rn,TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE
+        from T_TRAIN
+         where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getTrainByeIdAndLimit" resultType="com.wuju.model.Train">
+        select TR_ID,TR_THEME,TR_CONTENT,TR_BEGIN,TR_END,TR_STATE,TR_RELEASE,
+        E_ID,E_ACCOUNT,E_PASSWORD,E_TYPE,E_NAME,E_SEX,E_BIRTHDAY,E_PHONE,E_EMAIL,E_STATE,E_ENTRY,E_BEFULL from
+        (select rownum rn, e.E_ID,e.E_ACCOUNT,e.E_PASSWORD,e.E_TYPE,e.E_NAME,e.E_SEX,e.E_BIRTHDAY,e.E_PHONE,e.E_EMAIL,e.E_STATE,e.E_ENTRY,e.E_BEFULL,
+        tr.TR_ID,tr.TR_THEME,tr.TR_CONTENT,tr.TR_BEGIN,tr.TR_END,tr.TR_STATE,tr.TR_RELEASE
+        from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+        left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+        where e.E_ID=#{eId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getTrainCountByeId" resultType="java.lang.Integer">
+        select count(*) from
+        (T_TRAIN tr left join T_TRAINOBJECT tob on tr.TR_ID=tob.TR_ID)
+        left join T_EMPLOYEE e on e.E_ID=tob.E_ID
+        where e.E_ID=#{eId}
+    </select>
+
+
+    <!--<select id="getAllTrainsOne" resultType="com.wuju.model.Train">
+        select * from T_TRAIN
+    </select>
+    <select id="getTrainByIdOne" resultType="com.wuju.model.Train">
+        select * from T_TRAIN where TR_ID=#{trId}
+    </select>-->
+
+    <resultMap id="traToEmp" type="Train">
+        <id property="trId" column="TR_ID"/>
+        <result property="trTheme" column="TR_THEME"/>
+        <result property="trContent" column="TR_CONTENT"/>
+        <result property="trBegin" column="TR_BEGIN"/>
+        <result property="trEnd" column="TR_END"/>
+        <result property="trState" column="TR_STATE"/>
+        <result property="trRelease" column="TR_RELEASE"/>
+        <collection property="employees" ofType="Employee">
+            <id property="eId" column="E_ID"/>
+            <result property="eAccount" column="E_ACCOUNT"/>
+            <result property="ePassword" column="E_PASSWORD"/>
+            <result property="eType" column="E_TYPE"/>
+            <result property="eName" column="E_NAME"/>
+            <result property="eSex" column="E_SEX"/>
+            <result property="eBirthday" column="E_BIRTHDAY"/>
+            <result property="ePhone" column="E_PHONE"/>
+            <result property="eEmail" column="E_EMAIL"/>
+            <result property="eState" column="E_STATE"/>
+            <result property="eEntry" column="E_ENTRY"/>
+            <result property="eBefull" column="E_BEFULL"/>
+        </collection>
+    </resultMap>
+</mapper>

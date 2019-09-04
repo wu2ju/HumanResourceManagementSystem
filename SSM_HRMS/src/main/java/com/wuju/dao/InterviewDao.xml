@@ -45,6 +45,15 @@
     <select id="getInterviewByrcIdAnduId" resultMap="itvToRRE">
         select * from T_INTERVIEW where RC_ID=#{rcId} and U_ID=#{uId}
     </select>
+    <!--<select id="getInterviewByITtime" resultType="com.wuju.model.Interview">
+        select * from T_INTERVIEW where <![CDATA[ IT_TIME >= ]]>  to_timestamp(#{day1},'YYYYMMDD') and <![CDATA[ IT_TIME < ]]> to_timestamp(#{day2},'YYYYMMDD')
+    </select>-->
+    <select id="getInterviewByITtime" resultType="com.wuju.model.Interview">
+        select * from T_INTERVIEW where <![CDATA[ IT_TIME >= ]]>  to_timestamp('20190831','YYYYMMDD') and <![CDATA[ IT_TIME < ]]> to_timestamp('20190901','YYYYMMDD')
+    </select>
+    <!--<select id="getInterviewByITtime" resultType="com.wuju.model.Interview">
+        select * from T_INTERVIEW where IT_TIME between to_timestamp('20190831','YYYYMMDD') and to_timestamp('20190901','YYYYMMDD')
+    </select>-->
 
     <resultMap id="itvToRRE" type="Interview">
         <id property="itId" column="IT_ID"/>

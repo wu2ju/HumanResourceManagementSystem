@@ -1,6 +1,7 @@
 package com.wuju.model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Employee {
     private Integer eId;
@@ -12,10 +13,11 @@ public class Employee {
     private Date eBirthday;
     private String ePhone;
     private String eEmail;
-    private Integer eState;
+    private Integer eState; // 0 试用期 1 在职 2 离职
     private Position position;
     private Date eEntry;
     private Date eBefull;
+    private List<Train> trains;
 
     public Employee() {
     }
@@ -152,6 +154,14 @@ public class Employee {
 
     public void seteBefull(Date eBefull) {
         this.eBefull = eBefull;
+    }
+
+    public List<Train> getTrains() {
+        return trains;
+    }
+
+    public void setTrains(List<Train> trains) {
+        this.trains = trains;
     }
 
     @Override

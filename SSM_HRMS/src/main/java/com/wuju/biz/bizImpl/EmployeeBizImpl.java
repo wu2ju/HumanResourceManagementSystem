@@ -1,14 +1,17 @@
 package com.wuju.biz.bizImpl;
 
 import com.wuju.biz.EmployeeBiz;
+import com.wuju.dao.DepartmentDao;
 import com.wuju.dao.EmployeeDao;
 import com.wuju.dao.PositionDao;
+import com.wuju.model.Department;
 import com.wuju.model.Employee;
 import com.wuju.model.Page;
 import com.wuju.model.Position;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class EmployeeBizImpl implements EmployeeBiz {
     private EmployeeDao employeeDao;
     @Resource
     private PositionDao positionDao;
+    @Resource
+    private DepartmentDao departmentDao;
 
     public Employee login(Employee e) {
         if (e == null){
@@ -28,6 +33,7 @@ public class EmployeeBizImpl implements EmployeeBiz {
 
     @Override
     public List<Employee> getAllEmployees() {
+        // 获取非管理员的所有员工
         return employeeDao.getAllEmployees();
     }
 
@@ -37,8 +43,56 @@ public class EmployeeBizImpl implements EmployeeBiz {
     }
 
     @Override
+    public List<Employee> getEmployeeBypName(String pName) {
+        Position position = positionDao.getPositionByPName(pName);
+        if (position == null){
+            return null;
+        }
+        return employeeDao.getEmployeeBypId(position.getpId());
+    }
+
+    @Override
+    public List<Employee> getEmployeeBydpName(String dpName) {
+        Department department = departmentDao.getDepartmentByDpName(dpName);
+        List<Position> positions = positionDao.getPositionByDpId(department.getDpId());
+        List<Employee> employees = new ArrayList<>();
+        if (positions == null || positions.size() == 0){
+            return employees;
+        }
+        for (Position p : positions) {
+            List<Employee> employees1 = employeeDao.getEmployeeBypId(p.getpId());
+            if (employees1 != null && employees1.size() > 0){
+                employees.addAll(employees1);
+            }
+        }
+        return employees;
+    }
+
+    @Override
+    public Employee getEmployeeByeAccount(String eAccount) {
+        return employeeDao.getEmployeeByeAccount(eAccount);
+    }
+
+    @Override
     public Employee getEmployeeById(int eId) {
         return employeeDao.getEmployee(new Employee(eId));
+    }
+
+    @Override
+    public Employee getEmployeeByeIdAndToStateAndTrState(int eId, int toState, int trState) {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("eId",eId);
+        map.put("toState",toState);
+        map.put("trState",trState);
+        return employeeDao.getEmployeeByeIdAndToStateAndTrState(map);
+    }
+
+    @Override
+    public Employee getEmployeeByeIdAndTrState(int eId, int trState) {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("eId",eId);
+        map.put("trState",trState);
+        return employeeDao.getEmployeeByeIdAndTrState(map);
     }
 
     @Override

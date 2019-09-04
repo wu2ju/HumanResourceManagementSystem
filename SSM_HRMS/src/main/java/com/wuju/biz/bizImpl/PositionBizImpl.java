@@ -81,6 +81,9 @@ public class PositionBizImpl implements PositionBiz {
     @Override
     public List<Position> getPositionByDpName(String dpName) {
         Department d = departmentDao.getDepartmentByDpName(dpName);
+        if (d == null){
+            return null;
+        }
         return positionDao.getPositionByDpId(d.getDpId());
     }
 

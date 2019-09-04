@@ -2,6 +2,7 @@ package com.wuju.controller;
 
 import com.wuju.biz.*;
 import com.wuju.model.*;
+import com.wuju.util.ControllerUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -83,6 +84,7 @@ public class UserController {
             notification.setNtAccount(user.getuPhone());
             notification.setNtPassword("123");
             notification.setUser(user);
+            notification.setNtState(1);
             notificationBiz.addNotification(notification);
             // 添加员工，且得到相应的信息
             Resume r = resumeBiz.getResumeByuId(user.getuId()).get(0);
@@ -110,6 +112,13 @@ public class UserController {
             pageNo=1;
         }
         if (user != null){
+            Notification nt1 = notificationBiz.getNotificationByuIdAndNtState(user.getuId(), 1);
+            System.out.println("userInterview: " + nt1);
+            if (nt1 != null){
+                nt1.setNtState(2);
+                notificationBiz.updateNotification(nt1);
+                session.removeAttribute("nt");
+            }
             //表示用户
             Page<Interview> interviewPage = interviewBiz.getInterviewByuIdAndLimit(user.getuId(), pageNo);
             model.addAttribute("interviewPage",interviewPage);
@@ -186,7 +195,7 @@ public class UserController {
         Resume resume = resumeBiz.getResumeById(rId);
         // 找到过去的简历，生成新的用于面试的简历
         ResumeForIV resumeForIV = new ResumeForIV();
-        transferAttributeValues(resume, resumeForIV); //传递属性值，生成一个用于面试的简历
+        ControllerUtil.transferAttributeValues(resume, resumeForIV); //传递属性值，生成一个用于面试的简历
         System.out.println("addInterview: " + resume);
         System.out.println("addInterview: " + resumeForIV);
         // 一个招聘岗位，一个用户只能投一次简历
@@ -200,34 +209,6 @@ public class UserController {
         // 默认面试官为管理员
         interviewBiz.addInterview(interview);
         return "forward:userInterview";
-    }
-
-    public static void transferAttributeValues(Resume resume, ResumeForIV resumeForIV) {
-        Class<? extends Resume> resumeClass = resume.getClass();
-        Field[] declaredFields = resumeClass.getDeclaredFields();
-        Method[] declaredMethods = resumeClass.getDeclaredMethods();
-        Class<? extends ResumeForIV> resumeForIVClass = resumeForIV.getClass();
-        Method[] declaredMethods1 = resumeForIVClass.getDeclaredMethods();
-        for (Field field : declaredFields) {
-            String name = field.getName(); // 找到resume属性名称
-            System.out.println("transferAttributeValues: " + name);
-            for (Method method : declaredMethods) {
-                if (method.getName().equalsIgnoreCase("get" + name)){
-                    System.out.println("transferAttributeValues: " + method.getName());
-                    try {
-                        Object get = method.invoke(resume);// 通过get方法，获取resume属性值
-                        for (Method method1 : declaredMethods1) {
-                            if (method1.getName().equalsIgnoreCase("set" + name)){
-                                System.out.println("transferAttributeValues: " + method1.getName());
-                                method1.invoke(resumeForIV,get);// 通过set方法，设置resumeForIV属性值
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
     }
 
 
@@ -359,6 +340,11 @@ public class UserController {
             response.addCookie(cookie);
         }
         session.setAttribute("u",user);
+        // 获取用户的面试结果通知
+        Notification nt = notificationBiz.getNotificationByuIdAndNtState(user.getuId(), 1);
+        if (nt != null){
+            session.setAttribute("nt",nt);
+        }
         return "forward:recruitment";
     }
 

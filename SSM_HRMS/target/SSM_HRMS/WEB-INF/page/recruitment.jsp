@@ -1,8 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.wuju.model.Department" %>
-<%@ page import="com.wuju.model.Position" %>
-<%@ page import="com.wuju.model.Page" %>
-<%@ page import="com.wuju.model.Recruit" %><%--
+<%@ page import="com.wuju.model.*" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/27
@@ -44,8 +41,6 @@
             })
         })
     </script>
-
-
 </head>
 <body>
 <jsp:include page="recruitHead.jsp"/>
@@ -56,11 +51,20 @@
             List<Department> departments = (List<Department>) request.getAttribute("departments");
             for (Department department : departments) {
         %>
-        <a class="a0" name="<%=department.getDpName()%>" href="recruitment?dpName=<%=department.getDpName()%>"><%=department.getDpName()%></a>
+        <a class="a0" name="<%=department.getDpName().replace("部","")%>" href="recruitment?dpName=<%=department.getDpName()%>"><%=department.getDpName()%></a>
         <%
             }
         %>
     </div>
+
+    <%
+        Notification nt = (Notification) session.getAttribute("nt");
+        if (nt != null){
+    %>
+    <a href="userInterview" style="color: red">面试结果通知</a>
+    <%
+    }
+    %>
 
     <%--显示部门下所有职位的招聘信息--%>
     <td><p style="color: red">${str}</p></td>

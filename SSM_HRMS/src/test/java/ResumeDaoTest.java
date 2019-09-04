@@ -6,6 +6,7 @@ import com.wuju.model.Employee;
 import com.wuju.model.Resume;
 import com.wuju.model.ResumeForIV;
 import com.wuju.model.User;
+import com.wuju.util.ControllerUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,7 +41,7 @@ public class ResumeDaoTest {
         System.out.println("resume: " + resume);
         ResumeForIV resumeForIV = new ResumeForIV();
         System.out.println("resumeForIV: " + resumeForIV);
-        UserController.transferAttributeValues(resume,resumeForIV);
+        ControllerUtil.transferAttributeValues(resume,resumeForIV);
 
         resumeForIVDao.addResumeForIV(resumeForIV);
         System.out.println("resumeForIV: " + resumeForIV);

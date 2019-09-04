@@ -1,8 +1,6 @@
 import com.wuju.dao.PositionDao;
 import com.wuju.dao.RecruitDao;
-import com.wuju.model.Department;
-import com.wuju.model.Position;
-import com.wuju.model.Recruit;
+import com.wuju.model.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -11,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:bean.xml")
@@ -41,4 +40,8 @@ public class RecruitDaoTest {
         Recruit recruit = recruitDao.getRecruitById(1);
         System.out.println(recruit);
     }
+
+
+
+
 }

@@ -19,9 +19,9 @@
 <div>
     <a href="employee">个人信息</a>
     <a href="eDepartment">通讯录</a>
-    <a href="">培训</a>
-    <a href="">奖惩</a>
-    <a href="">考勤打卡</a>
+    <a href="eTrain">培训</a>
+    <a href="eRewardPunish">奖惩</a>
+    <a href="eCheckInLog">考勤打卡</a>
     <a href="">薪资</a>
 </div>
 </body>

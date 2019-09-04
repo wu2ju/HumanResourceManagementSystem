@@ -1,4 +1,8 @@
-<%--
+<%@ page import="com.wuju.biz.NotificationBiz" %>
+<%@ page import="javax.annotation.Resource" %>
+<%@ page import="com.wuju.biz.bizImpl.NotificationBizImpl" %>
+<%@ page import="com.wuju.model.User" %>
+<%@ page import="com.wuju.model.Notification" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/22

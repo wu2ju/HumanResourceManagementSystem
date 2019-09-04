@@ -177,6 +177,10 @@ public class AdminController {
             model.addAttribute("str","账号或密码错误！");
             return "login";
         }
+        if (employee.geteState() != null && employee.geteState() == 2){
+            model.addAttribute("str","离职员工不能登录！");
+            return "login";
+        }
         if (remember != null){
             //表示要将账号和密码存进Cookie中，管理员和员工是一个表，账号不重复
             Cookie cookie = new Cookie(e.geteAccount(),e.getePassword());
@@ -188,33 +192,15 @@ public class AdminController {
             // 0表示管理员登录，进入管理员界面，1表示员工登录
             return "admin";
         }else {
+            //获取培训通知，刚（toState=1）发布（trState=2）给员工（employee.geteId()）的培训
+            Employee employeeWithTrain = employeeBiz.getEmployeeByeIdAndToStateAndTrState(employee.geteId(), 1, 2);
+            session.setAttribute("employeeWithTrain",employeeWithTrain);
             return "redirect:employee";
         }
-
-        /*if (type.equals("0")){
-            // 0表示管理员登录，进入管理员界面，1表示员工登录
-            Admin a = adminBiz.login(admin);
-            if (a == null){
-                model.addAttribute("str","账号或密码错误！");
-                return "login";
-            }
-            session.setAttribute("ad",a);
-            return "admin";
-        }else {
-            //根据账号和密码查询出对应的员工
-            Employee e = employeeBiz.login(new Employee(admin.getAdAccount(),admin.getAdPassword()));
-            if (e == null){
-                model.addAttribute("str","账号或密码错误！");
-                return "login";
-            }
-            session.setAttribute("e",e);
-            return "employee";
-        }*/
-
     }
 
     @RequestMapping("hasCookie")
-    public String hasCookie(HttpServletRequest request, HttpSession session){
+    public String hasCookie(HttpServletRequest request, HttpSession session, Model model){
         // 登录：先查看cookie中是否有次记录，
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length>0){
@@ -225,6 +211,10 @@ public class AdminController {
                 Employee e = employeeBiz.login(new Employee(account, password));
                 if (e != null){
                     // Cookie中找到了用户那就登录成功
+                    if (e.geteState() == 2){
+                        model.addAttribute("str","离职员工不能登录！");
+                        return "login";
+                    }
                     session.setAttribute("e",e);
                     if (e.geteType() == 0){
                         // 0表示管理员登录，进入管理员界面，1表示员工登录

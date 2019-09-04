@@ -5,6 +5,7 @@ public class Notification {
     private String ntAccount;
     private String ntPassword;
     private User user;
+    private int ntState;
 
     public Notification() {
     }
@@ -41,6 +42,14 @@ public class Notification {
         this.user = user;
     }
 
+    public int getNtState() {
+        return ntState;
+    }
+
+    public void setNtState(int ntState) {
+        this.ntState = ntState;
+    }
+
     @Override
     public String toString() {
         return "Notification{" +
@@ -48,6 +57,7 @@ public class Notification {
                 ", ntAccount='" + ntAccount + '\'' +
                 ", ntPassword='" + ntPassword + '\'' +
                 ", user=" + user +
+                ", ntState=" + ntState +
                 '}';
     }
 }

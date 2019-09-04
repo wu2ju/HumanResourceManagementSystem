@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,5 +41,27 @@ public class InterviewDaoTest {
         System.out.println(interview);
         interview.setItState(1);
         interviewDao.updateInterview(interview);
+    }
+
+    @Test
+    public void testGetInterviewByITtime(){
+        /*HashMap<String,String> map = new HashMap<>();
+        map.put("day1","20190831");
+        map.put("day2","20190901");*/
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019,8,31);
+        int year1 = calendar.get(Calendar.YEAR);
+        int month1 = calendar.get(Calendar.MONTH);
+        int day1 = calendar.get(Calendar.DATE);
+        calendar.add(Calendar.DATE,1);
+        int year2 = calendar.get(Calendar.YEAR);
+        int month2 = calendar.get(Calendar.MONTH);
+        int day2 = calendar.get(Calendar.DATE);
+        HashMap<String,String> map = new HashMap<>();
+        map.put("day1",year1+"0"+month1+day1);
+        map.put("day2",year2+"0"+month2+day2);
+        System.out.println(map);
+        List<Interview> interview = interviewDao.getInterviewByITtime(map);
+        System.out.println(interview);
     }
 }

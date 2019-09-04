@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.CheckInDao">
+    <insert id="addCheckIn">
+        <selectKey keyProperty="ciId" order="BEFORE" resultType="integer">
+            select SEQ_CHECKIN.nextval from dual
+        </selectKey>
+        insert into T_CHECKIN values(#{ciId},#{ciAttendtime},#{ciClosetime},#{employee.eId})
+    </insert>
+    <update id="updateCheckIn">
+        update T_CHECKIN set CI_ATTENDTIME=#{ciAttendtime},CI_CLOSETIME=#{ciClosetime},E_ID=#{employee.eId} where CI_ID=#{ciId}
+    </update>
+    <delete id="delCheckIn">
+        delete from T_CHECKIN where CI_ID=#{ciId}
+    </delete>
+    <select id="getCheckInById" resultMap="chiToEmp">
+        select * from T_CHECKIN where CI_ID=#{ciId}
+    </select>
+    <select id="getAllCheckIns" resultMap="chiToEmp">
+        select * from T_CHECKIN
+    </select>
+    <select id="getCheckInToday" resultMap="chiToEmp">
+        select * from T_CHECKIN where to_char(CI_ATTENDTIME,'YYYY-MM-DD') = to_char(sysdate,'YYYY-MM-DD')
+    </select>
+    <select id="getCheckInByeId" resultMap="chiToEmp">
+        select * from T_CHECKIN where E_ID=#{eId}
+    </select>
+    <select id="getCheckInByeIdAndLimit" resultMap="chiToEmp">
+        select CI_ID,CI_ATTENDTIME,CI_CLOSETIME,E_ID from
+        (select rownum rn,CI_ID,CI_ATTENDTIME,CI_CLOSETIME,E_ID from T_CHECKIN
+        where E_ID=#{eId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getCheckInCountByeId" resultType="java.lang.Integer">
+        select count(*) from T_CHECKIN where E_ID=#{eId}
+    </select>
+    <select id="getAllCheckInsByLimit" resultMap="chiToEmp">
+        select CI_ID,CI_ATTENDTIME,CI_CLOSETIME,E_ID from
+        (select rownum rn,CI_ID,CI_ATTENDTIME,CI_CLOSETIME,E_ID from T_CHECKIN
+        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllCheckInCount" resultType="java.lang.Integer">
+         select count(*) from T_CHECKIN
+    </select>
+
+    <resultMap id="chiToEmp" type="CheckIn">
+        <id property="ciId" column="CI_ID"/>
+        <result property="ciAttendtime" column="CI_ATTENDTIME"/>
+        <result property="ciClosetime" column="CI_CLOSETIME"/>
+        <association property="employee" javaType="Employee"
+                     column="E_ID" select="com.wuju.dao.EmployeeDao.getEmployeeByeId"/>
+    </resultMap>
+</mapper>

@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.wuju.model.Department" %>
-<%@ page import="com.wuju.model.Page" %><%--
+<%@ page import="com.wuju.model.Page" %>
+<%@ page import="com.wuju.model.Employee" %><%--
   Created by IntelliJ IDEA.
   User: 吴炬
   Date: 2019/8/27
@@ -23,8 +24,20 @@
     </script>
 </head>
 <body>
-<jsp:include page="employeeHead.jsp"/>
-<jsp:include page="eHead.jsp"/>
+<div>
+    <%
+        Employee e1 = (Employee) session.getAttribute("e");
+        if (e1.geteType() == 1){
+    %>
+    <jsp:include page="employeeHead.jsp"/>
+    <a href="eDepartment">部门信息</a>
+    <a href="ePosition">职位信息</a>
+    <a href="eEmployee">员工信息</a>
+    <%
+    }
+    %>
+</div>
+
 <div>
 
 <%--显示所有部门--%>
