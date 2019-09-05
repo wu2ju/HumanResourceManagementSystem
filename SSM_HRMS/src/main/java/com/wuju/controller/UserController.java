@@ -41,9 +41,14 @@ public class UserController {
     private ResumeForIVBiz resumeForIVBiz;
 
     @RequestMapping("resumeForIV")
-    public String resumeForIV(Integer rId, Model model){
-        ResumeForIV resumeForIV = resumeForIVBiz.getResumeForIVById(rId);
-        model.addAttribute("resumeForIV",resumeForIV);
+    public String resumeForIV(Integer rId, Integer rState, Model model){
+        if(rId != null){
+            ResumeForIV resumeForIV = resumeForIVBiz.getResumeForIVById(rId);
+            if (rState != null && resumeForIV.getrState() != 2){
+                resumeForIVBiz.updateResumeForIV(2, rId);
+            }
+            model.addAttribute("resumeForIV",resumeForIV);
+        }
         return "resumeForIV";
     }
 
@@ -196,6 +201,7 @@ public class UserController {
         // 找到过去的简历，生成新的用于面试的简历
         ResumeForIV resumeForIV = new ResumeForIV();
         ControllerUtil.transferAttributeValues(resume, resumeForIV); //传递属性值，生成一个用于面试的简历
+        resumeForIV.setrState(1);  // 状态1 管理员未阅览 2 管理员已阅览
         System.out.println("addInterview: " + resume);
         System.out.println("addInterview: " + resumeForIV);
         // 一个招聘岗位，一个用户只能投一次简历

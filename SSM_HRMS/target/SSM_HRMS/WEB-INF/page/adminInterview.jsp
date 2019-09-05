@@ -109,7 +109,15 @@
                     <td><input type="submit" value="通知面试"></td>
                 </form>
                 <td><a href="updateInterview?itId=<%=interview.getItId()%>&itState=1">不面试</a></td>
-                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>&rState=2">查看简历</a>
+                <%
+                    if (interview.getResumeForIV().getrState() == 2){
+                        %>
+                    <span style="color: red">已阅</span>
+                    <%
+                    }
+                %>
+                </td>
             </tr>
             <%
             } else if (interview.getItState() == 3){

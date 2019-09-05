@@ -41,6 +41,7 @@
                 <th>面试时间</th>
                 <th>面试地址</th>
                 <th>面试官</th>
+                <th>查看简历</th>
                 <th>操作</th>
             </tr>
             <%
@@ -54,6 +55,10 @@
                 <td><%=interview.getResumeForIV().getrName()%></td>
                 <td><%=interview.getItDeliveryResume()%></td>
                 <td><%=interview.getItState()%> 等待面试通知</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
             </tr>
             <%
                 } else if (interview.getItState() == 2){
@@ -66,6 +71,7 @@
                 <td><%=interview.getItTime()%></td>
                 <td><%=interview.getItAddress()%></td>
                 <td><%=interview.getEmployee().geteName()%></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
                 <td><a href="updateInterview?itId=<%=interview.getItId()%>&itState=3">接受面试</a></td>
                 <td><a href="updateInterview?itId=<%=interview.getItId()%>&itState=4">拒绝面试</a></td>
             </tr>
@@ -80,6 +86,7 @@
                 <td><%=interview.getItTime()%></td>
                 <td><%=interview.getItAddress()%></td>
                 <td><%=interview.getEmployee().geteName()%></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
             </tr>
             <%
                 }else if (interview.getItState() == 4){
@@ -92,6 +99,7 @@
                 <td><%=interview.getItTime()%></td>
                 <td><%=interview.getItAddress()%></td>
                 <td><%=interview.getEmployee().geteName()%></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
             </tr>
             <%
                 }else if (interview.getItState() == 5){
@@ -104,6 +112,7 @@
                 <td><%=interview.getItTime()%></td>
                 <td><%=interview.getItAddress()%></td>
                 <td><%=interview.getEmployee().geteName()%></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
                 <td>面试通过，明天入职</td>
             </tr>
             <%
@@ -117,6 +126,7 @@
                 <td><%=interview.getItTime()%></td>
                 <td><%=interview.getItAddress()%></td>
                 <td><%=interview.getEmployee().geteName()%></td>
+                <td><a href="resumeForIV?rId=<%=interview.getResumeForIV().getrId()%>">查看简历</a></td>
                 <td>面试没通过</td>
             </tr>
             <%

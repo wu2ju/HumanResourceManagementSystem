@@ -25,6 +25,7 @@ public class ResumeForIV {
     private String rLocation;
     private String rFeature;
     private User user;
+    private int rState;
 
     public ResumeForIV() {
     }
@@ -237,6 +238,14 @@ public class ResumeForIV {
         this.user = user;
     }
 
+    public int getrState() {
+        return rState;
+    }
+
+    public void setrState(int rState) {
+        this.rState = rState;
+    }
+
     @Override
     public String toString() {
         return "ResumeForIV{" +
@@ -262,6 +271,7 @@ public class ResumeForIV {
                 ", rLocation='" + rLocation + '\'' +
                 ", rFeature='" + rFeature + '\'' +
                 ", user=" + user +
+                ", rState=" + rState +
                 '}';
     }
 }

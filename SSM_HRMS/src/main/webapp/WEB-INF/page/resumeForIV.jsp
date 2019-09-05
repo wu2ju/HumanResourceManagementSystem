@@ -53,7 +53,7 @@
                 <th>个人特色</th>
             </tr>
             <tr>
-                    <td>${resumeForIV.rName}"</td>
+                    <td>${resumeForIV.rName}</td>
                     <td><input type="radio" name="rSex" value="男" ${(resumeForIV.rSex eq "男") ? "checked" : ""}>男
                     <input type="radio" name="rSex" value="女" ${(resumeForIV.rSex eq "女") ? "checked" : ""}>女</td>
                     <td>${resumeForIV.rBirthday}</td>

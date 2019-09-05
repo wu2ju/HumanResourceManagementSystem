@@ -6,8 +6,11 @@
             select SEQ_RESUMEFORIV.nextval from dual
         </selectKey>
         insert into T_RESUME_FOR_IV values(#{rId},#{rName},#{rSex},#{rBirthday},#{rWorktime},#{rSchool},#{rEducation},#{rMajor},#{rAdmission},#{rGraduation},
-        #{rSchoolexp},#{rCompany},#{rJob},#{rAbility},#{rEntry},#{rQuit},#{rHopejob},#{rSalary},#{rIndustry},#{rLocation},#{rFeature},#{user.uId})
+        #{rSchoolexp},#{rCompany},#{rJob},#{rAbility},#{rEntry},#{rQuit},#{rHopejob},#{rSalary},#{rIndustry},#{rLocation},#{rFeature},#{user.uId},#{rState})
     </insert>
+    <update id="updateResumeForIV">
+        update T_RESUME_FOR_IV set R_STATE=#{rState} where R_ID=#{rId}
+    </update>
 
     <delete id="delResumeForIV">
         delete from T_RESUME_FOR_IV where R_ID=#{rId}
@@ -41,6 +44,7 @@
         <result property="rIndustry" column="R_INDUSTRY"/>
         <result property="rLocation" column="R_LOCATION"/>
         <result property="rFeature" column="R_FEATURE"/>
+        <result property="rState" column="R_State"/>
         <association property="user" javaType="User" column="U_ID" select="com.wuju.dao.UserDao.getUserById"/>
     </resultMap>
 </mapper>

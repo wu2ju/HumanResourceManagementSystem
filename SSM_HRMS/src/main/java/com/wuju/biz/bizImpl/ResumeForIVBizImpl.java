@@ -6,6 +6,7 @@ import com.wuju.model.ResumeForIV;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -21,6 +22,14 @@ public class ResumeForIVBizImpl implements ResumeForIVBiz {
     @Override
     public boolean delResumeForIV(int rId) {
         return resumeForIVDao.delResumeForIV(rId);
+    }
+
+    @Override
+    public boolean updateResumeForIV(int rState, int rId) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("rState",rState);
+        map.put("rId",rId);
+        return resumeForIVDao.updateResumeForIV(map);
     }
 
     @Override
