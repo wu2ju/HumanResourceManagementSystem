@@ -41,6 +41,11 @@
     <select id="getAllCheckInCount" resultType="java.lang.Integer">
          select count(*) from T_CHECKIN
     </select>
+    <select id="getCheckInMonthByeId" resultMap="chiToEmp">
+        select * from T_CHECKIN where to_number(to_char(CI_ATTENDTIME,'YYYY'))= to_number(to_char(sysdate,'YYYY')) and
+        to_number(to_char(CI_ATTENDTIME,'MM'))=to_number(to_char(sysdate,'MM'))-1
+        and E_ID=#{eId}
+    </select>
 
     <resultMap id="chiToEmp" type="CheckIn">
         <id property="ciId" column="CI_ID"/>

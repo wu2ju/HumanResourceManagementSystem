@@ -74,6 +74,11 @@ public class PositionBizImpl implements PositionBiz {
     }
 
     @Override
+    public Position getPositionById(int pId) {
+        return positionDao.getPositionById(pId);
+    }
+
+    @Override
     public List<Position> getAllPositions() {
         return positionDao.getAllPositions();
     }

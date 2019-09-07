@@ -19,9 +19,12 @@
 </head>
 <body>
 <jsp:include page="recruitHead.jsp"/>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 <fieldset>
     <legend>招聘信息</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>职位名称</th>
             <th>薪资</th>
@@ -68,6 +71,9 @@
     <p><%=recruit.getDepartment().getCompany().getCpIntroduction()%></p>
     <p>工作地址</p>
     <p><%=recruit.getPosition().getpLocation()%></p>
+    </div>
 </fieldset>
+    </div>
+</div>
 </body>
 </html>

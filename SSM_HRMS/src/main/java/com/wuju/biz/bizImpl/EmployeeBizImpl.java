@@ -127,7 +127,9 @@ public class EmployeeBizImpl implements EmployeeBiz {
             pId = position.getpId();
         }else {
             Position position1 = positionDao.getPositionByPName(position.getpName());
-            pId = position1.getpId();
+            if (position1 != null){
+                pId = position1.getpId();
+            }
         }
         int totalRows = employeeDao.getEmployeeCountBypId(pId);
         HashMap<String,Object> map = new HashMap<>();

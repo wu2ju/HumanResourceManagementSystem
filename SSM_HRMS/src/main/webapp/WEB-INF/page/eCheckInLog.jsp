@@ -53,8 +53,8 @@
         if (e1.geteType() == 1){
     %>
     <jsp:include page="employeeHead.jsp"/>
-    <a href="eCheckIn">打卡</a>
-    <a href="eCheckInLog">所有打卡记录</a>
+    <%--<a href="eCheckIn">打卡</a>
+    <a href="eCheckInLog">所有打卡记录</a>--%>
     <%
     }else {
         List<Employee> employees1 = (List<Employee>) request.getAttribute("employees");
@@ -82,14 +82,16 @@
     %>
 </div>
 
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
-<%--显示部门下所有职位的招聘信息--%>
+    <%--显示部门下所有职位的招聘信息--%>
     <td><p style="color: red">${str}</p></td>
 
 <fieldset>
     <legend>所有打卡记录</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>上班时间</th>
             <th>下班时间</th>
@@ -109,24 +111,29 @@
         %>
 
     </table>
+    </div>
 
 </fieldset>
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=checkInPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=checkInPage.getPageNo()%> 页</span>
+        <span>第 <%=checkInPage.getPageNo()%> 页</span>
         <span><a id="b1" class="aPageState" href="eCheckInLog?pageNo=1">首页</a></span>
         <span><a id="b2" class="aPageState" href="eCheckInLog?pageNo=<%=checkInPage.getPrevPage()%>">上一页</a></span>
         <span><a id="b3" class="aPageState" href="eCheckInLog?pageNo=<%=checkInPage.getNextPage()%>">下一页</a></span>
         <span><a id="b4" class="aPageState" href="eCheckInLog?pageNo=<%=checkInPage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="eCheckInLog"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" type="number" name="pageNo">
             <input type="hidden" name="eId" value="">
             <input id="b5" type="submit" value="跳转">
         </form>
+            </div>
 
     </div>
 
+</div>
 </div>
 </body>
 </html>

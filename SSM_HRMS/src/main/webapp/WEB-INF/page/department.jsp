@@ -66,9 +66,11 @@
 </head>
 <body>
 <jsp:include page="adminHead.jsp"/>
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
-<input id="addBtn" type="button" value="添加部门">
+
+    <input id="addBtn" type="button" value="添加部门">
 <div id="div1" style="display: none">
     <form action="addDep" method="post">
         <input name="dpName">
@@ -84,7 +86,8 @@
 <%--显示所有部门--%>
 <fieldset>
     <legend>部门</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>名称</th>
             <th>成立时间</th>
@@ -116,22 +119,27 @@
             }
         %>
     </table>
+    </div>
 </fieldset>
 
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=departmentPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=departmentPage.getPageNo()%> 页</span>
+        <span>第 <%=departmentPage.getPageNo()%> 页</span>
         <span><a href="department?pageNo=1">首页</a></span>
         <span><a href="department?pageNo=<%=departmentPage.getPrevPage()%>">上一页</a></span>
         <span><a href="department?pageNo=<%=departmentPage.getNextPage()%>">下一页</a></span>
         <span><a href="department?pageNo=<%=departmentPage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="department"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" type="number" name="pageNo">
             <input type="submit" value="跳转">
         </form>
+            </div>
 
     </div>
+</div>
 </div>
 
 </body>

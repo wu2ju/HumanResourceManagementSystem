@@ -221,6 +221,7 @@ public class UserController {
     @RequestMapping("updateResume")
     public String updateResume(Resume resume){
         // 更新简历信息
+
         Resume resume1 = resumeBiz.getResumeById(resume.getrId());
         Class<? extends Resume> resumeClass = resume.getClass();
         Method[] methods = resumeClass.getDeclaredMethods();
@@ -270,10 +271,14 @@ public class UserController {
             return "resume";
         }
         java.sql.Date o = new java.sql.Date(0);
-        Resume resume = new Resume(" "," ",o,o," "," "," ",o,o," "," "," "," ",o,o," ",0," "," "," ",new User(1));
+//        Resume resume = new Resume(" "," ",o,o," "," "," ",o,o," "," "," "," ",o,o," ",0," "," "," ",new User(1));
+        Resume resume = new Resume(" "," ",o,o," "," "," ",o,o," "," "," "," ",o,o," ",0," "," "," ",user);
         resumeBiz.addResume(resume);
         List<Resume> resumesNew = resumeBiz.getResumeByuId(user.getuId());
-        Resume resume1 = resumesNew.get(0);  //为了得到含有rId和uId的简历
+        Resume resume1 = new Resume();
+        if (resumesNew != null && resumesNew.size() > 0){
+            resume1 = resumesNew.get(0);  //为了得到含有rId和uId的简历
+        }
         model.addAttribute("resume",resume1);
         return "resume";
     }

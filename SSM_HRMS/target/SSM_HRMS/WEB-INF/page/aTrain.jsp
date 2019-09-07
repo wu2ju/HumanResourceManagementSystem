@@ -145,18 +145,30 @@
         })
     </script>
 
-
+    <style>
+        .table-wrapper .table td label{
+            width: 40px;
+            text-align: left;
+        }
+        input[type="datetime-local"]{
+            width: 170px;
+        }
+        input[name="trTheme"]{
+            width: 100px;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="adminHead.jsp"/>
-<a href="aTrain">培训</a>
-<a href="eTrain">所有培训记录</a>
-<div>
+<%--<a href="aTrain">培训</a>
+<a href="eTrain">所有培训记录</a>--%>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
-<input id="addBtn" type="button" value="添加培训">
+    <input id="addBtn" type="button" value="添加培训">
 <div id="div1" style="display: none">
     <form action="addTrain" method="post">
-        主题：<input name="trTheme"><br>
+        培训主题：<input name="trTheme"><br>
         具体内容：<textarea name="trContent"></textarea><br>
         开始时间：<input type="datetime-local" name="trBegin1"><br>
         结束时间：<input type="datetime-local" name="trEnd1"><br>
@@ -210,7 +222,8 @@
     <td><p style="color: red">${str}</p></td>
 <fieldset>
     <legend>培训信息</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>主题</th>
             <th>具体内容</th>
@@ -315,23 +328,27 @@
             }
         %>
     </table>
+    </div>
 </fieldset>
 
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=trainPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=trainPage.getPageNo()%> 页</span>
+        <span>第 <%=trainPage.getPageNo()%> 页</span>
         <span><a id="b1" class="aPageState" href="aTrain?pageNo=1">首页</a></span>
         <span><a id="b2" class="aPageState" href="aTrain?pageNo=<%=trainPage.getPrevPage()%>">上一页</a></span>
         <span><a id="b3" class="aPageState" href="aTrain?pageNo=<%=trainPage.getNextPage()%>">下一页</a></span>
         <span><a id="b4" class="aPageState" href="aTrain?pageNo=<%=trainPage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="aTrain"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" name="pageNo">
             <input type="hidden" name="dpName" value="">
             <input id="b5" type="submit" value="跳转">
         </form>
-
+            </div>
     </div>
+</div>
 </div>
 </body>
 </html>

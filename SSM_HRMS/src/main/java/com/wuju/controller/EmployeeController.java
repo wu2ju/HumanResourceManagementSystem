@@ -97,7 +97,7 @@ public class EmployeeController {
         }
         Page<Employee> employeePage = new Page<>();
         System.out.println("eEmployee: " + position);
-        if (position == null || position.getpId() == null && (position.getpName() == null || position.getpName().equals("null"))){
+        if (position == null || position.getpId() == null && (position.getpName() == null || position.getpName().equals("null") || position.getpName().equals(""))){
             employeePage = employeeBiz.getAllEmployeesByLimit(pageNo);
         }else {
             employeePage = employeeBiz.getEmployeeBypIdOrpNameAndLimit(position, pageNo);

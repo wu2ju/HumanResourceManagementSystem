@@ -236,10 +236,23 @@ public class AdminController2 {
     @RequestMapping("addRecruit")
     public String addRecruit(Recruit recruit, String dpName, String pName, Model model){
 //        添加招聘信息，初始状态为草稿 rcState=1，
-        if (recruit.getRcDeadline() == null || dpName == null || pName == null){
+        // recruit.getRcDeadline() 不能为空null
+        System.out.println("addRecruit: " + recruit + ", " + dpName + ", " + pName);
+        if (recruit.getRcDeadline() == null /*|| rcDeadline1.equals("")*/ || dpName == null || dpName.equals("") || pName == null){
             model.addAttribute("str","信息不完整，添加失败");
             return "forward:recruit";
         }
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        Recruit recruit = new Recruit();
+        recruit.setRcDeadline(rcDeadline1);*/
+        /*java.util.Date date = new java.util.Date();
+        try {
+            date = sdf.parse(rcDeadline1);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        recruit.setRcDeadline(new Date(date.getTime()));*/
         Department department = departmentBiz.getDepartmentByDpName(dpName);
         Position position = positionBiz.getPositionByPName(pName);
         recruit.setDepartment(department);

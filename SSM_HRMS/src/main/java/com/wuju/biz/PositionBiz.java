@@ -14,7 +14,7 @@ public interface PositionBiz {
     Position getPosition(HashMap<String,Integer> map);
     // map中有pId, 和员工的状态eState
     //用于查询该职位下在职的员工
-//    Position getPositionById(int pId);
+    Position getPositionById(int pId);
     List<Position> getAllPositions();
     List<Position> getPositionByDpName(String dpName);
     Position getPositionByPName(String pName);

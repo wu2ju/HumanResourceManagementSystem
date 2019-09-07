@@ -36,6 +36,21 @@ public class RewardPunishBizImpl implements RewardPunishBiz {
     }
 
     @Override
+    public Page<RewardPunish> getRewardPunishMonthByLimit(int month, int pageNo) {
+        Page page=new Page<>();
+        int totalRows = rewardPunishDao.getRewardPunishCountMonth(month);
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("month",month);
+        map.put("start",(pageNo-1)*page.getPageSize() + 1);
+        map.put("end",pageNo * page.getPageSize());
+        List<RewardPunish> rewardPunishes = rewardPunishDao.getRewardPunishMonthByLimit(map);
+        page.setPageNo(pageNo);
+        page.setTotalRows(totalRows);
+        page.setList(rewardPunishes);
+        return page;
+    }
+
+    @Override
     public Page<RewardPunish> getRewardPunishByeIdAndLimit(int eId, int pageNo) {
         Page page=new Page<>();
         int totalRows = rewardPunishDao.getRewardPunishCountByeId(eId);
@@ -44,6 +59,22 @@ public class RewardPunishBizImpl implements RewardPunishBiz {
         map.put("start",(pageNo-1)*page.getPageSize() + 1);
         map.put("end",pageNo * page.getPageSize());
         List<RewardPunish> rewardPunishes = rewardPunishDao.getRewardPunishByeIdAndLimit(map);
+        page.setPageNo(pageNo);
+        page.setTotalRows(totalRows);
+        page.setList(rewardPunishes);
+        return page;
+    }
+
+    @Override
+    public Page<RewardPunish> getRewardPunishMonthByeIdAndLimit(int month, int eId, int pageNo) {
+        Page page=new Page<>();
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("month",month);
+        map.put("eId",eId);
+        int totalRows = rewardPunishDao.getRewardPunishCountMonthByeId(map);
+        map.put("start",(pageNo-1)*page.getPageSize() + 1);
+        map.put("end",pageNo * page.getPageSize());
+        List<RewardPunish> rewardPunishes = rewardPunishDao.getRewardPunishMonthByeIdAndLimit(map);
         page.setPageNo(pageNo);
         page.setTotalRows(totalRows);
         page.setList(rewardPunishes);

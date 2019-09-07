@@ -16,8 +16,8 @@
     <title>$</title>
 </head>
 <body>
-<a href="index.jsp">公司主页</a>
-<a href="hasCookie">登录</a>
-<a href="recruitment">招聘信息</a>
+<a style="font-size: 20px" href="index.jsp">公司主页</a>
+<a style="font-size: 20px" href="hasCookie">登录</a>
+<a style="font-size: 20px" href="recruitment">招聘信息</a>
 </body>
 </html>

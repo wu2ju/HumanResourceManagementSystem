@@ -13,13 +13,15 @@
     <select id="getDepartment" resultMap="depToComp">
         select * /*dp.DP_ID,dp.DP_NAME,dp.DP_ESTABLISH,p.P_ID,p.P_NAME,
         p.P_SALARY,p.P_LOCATION,p.P_EXPERIENCE,p.P_EDUCATION,p.P_INTRODUCTION,p.P_REQUEST*/
-        from T_DEPARTMENT dp,T_POSITION p where dp.DP_ID=p.DP_ID
-        <if test="dpId != null and dpId != 0">
-          and dp.DP_ID=#{dpId}
-        </if>
-        <if test="dpName != null and dpName != ''">
-            and dp.DP_NAME=#{dpName}
-        </if>
+        from T_DEPARTMENT dp left join T_POSITION p on dp.DP_ID=p.DP_ID
+        <where>
+            <if test="dpId != null and dpId != 0">
+                and dp.DP_ID=#{dpId}
+            </if>
+            <if test="dpName != null and dpName != ''">
+                and dp.DP_NAME=#{dpName}
+            </if>
+        </where>
     </select>
 
     <select id="getDepartmentById" resultMap="depToComp">

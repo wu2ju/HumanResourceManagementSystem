@@ -30,20 +30,20 @@
         if (e1.geteType() == 1){
     %>
     <jsp:include page="employeeHead.jsp"/>
-    <a href="eDepartment">部门信息</a>
-    <a href="ePosition">职位信息</a>
-    <a href="eEmployee">员工信息</a>
     <%
     }
     %>
 </div>
 
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
-<%--显示所有部门--%>
+
+    <%--显示所有部门--%>
 <fieldset>
     <legend>部门</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>名称</th>
             <th>成立时间</th>
@@ -64,22 +64,27 @@
             }
         %>
     </table>
+    </div>
 </fieldset>
 
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=departmentPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=departmentPage.getPageNo()%> 页</span>
+        <span>第 <%=departmentPage.getPageNo()%> 页</span>
         <span><a href="eDepartment?pageNo=1">首页</a></span>
         <span><a href="eDepartment?pageNo=<%=departmentPage.getPrevPage()%>">上一页</a></span>
         <span><a href="eDepartment?pageNo=<%=departmentPage.getNextPage()%>">下一页</a></span>
         <span><a href="eDepartment?pageNo=<%=departmentPage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="eDepartment"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" type="number" name="pageNo">
             <input type="submit" value="跳转">
         </form>
+            </div>
 
     </div>
+</div>
 </div>
 
 </body>

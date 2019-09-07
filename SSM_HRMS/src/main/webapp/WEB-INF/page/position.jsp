@@ -19,15 +19,6 @@
     <title>$</title>
     <script src="js/jquery-1.7.2.js"></script>
     <script>
-        var flag = <%=request.getAttribute("flag")%>;
-        if (flag != null) {
-            if (flag == true){
-                alert("添加成功");
-            }
-            else {
-                alert("添加失败");
-            }
-        }
 
         function delPosition(pId){
             var div2 = document.getElementById("div2");
@@ -92,14 +83,15 @@
 </head>
 <body>
 <jsp:include page="adminHead.jsp"/>
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
 <input id="addBtn" type="button" value="添加职位">
 <div id="div1" style="display: none">
     <form action="addPos" method="post">
         职位名称：<input name="pName"><br>
-        薪资：<input name="pSalary"><br>
-        地址：<input name="pLocation"><br>
+        入职薪资：<input name="pSalary"><br>
+        工作地点：<input name="pLocation"><br>
         经验需求<input name="pExperience"><br>
         学历需求<input name="pEducation"><br>
         职位简介：<input name="pIntroduction"><br>
@@ -142,7 +134,8 @@
 <%--显示部门下所有职位--%>
 <fieldset>
     <legend>职位</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>名称</th>
             <th>薪资</th>
@@ -186,23 +179,28 @@
             }
         %>
     </table>
+    </div>
 </fieldset>
 
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=positionPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=positionPage.getPageNo()%> 页</span>
+        <span>第 <%=positionPage.getPageNo()%> 页</span>
         <span><a id="b1" class="aPageState" href="position?pageNo=1">首页</a></span>
         <span><a id="b2" class="aPageState" href="position?pageNo=<%=positionPage.getPrevPage()%>">上一页</a></span>
         <span><a id="b3" class="aPageState" href="position?pageNo=<%=positionPage.getNextPage()%>">下一页</a></span>
         <span><a id="b4" class="aPageState" href="position?pageNo=<%=positionPage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="position"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" type="number" name="pageNo">
             <input type="hidden" name="dpName" value="">
             <input id="b5" type="submit" value="跳转">
         </form>
+            </div>
 
     </div>
+</div>
 </div>
 </body>
 </html>

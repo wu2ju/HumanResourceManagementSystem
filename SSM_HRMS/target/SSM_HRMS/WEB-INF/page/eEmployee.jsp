@@ -142,9 +142,9 @@
         if (e1.geteType() == 1){
     %>
     <jsp:include page="employeeHead.jsp"/>
-    <a href="eDepartment">部门信息</a>
+    <%--<a href="eDepartment">部门信息</a>
     <a href="ePosition">职位信息</a>
-    <a href="eEmployee">员工信息</a>
+    <a href="eEmployee">员工信息</a>--%>
     <%
         }else {
             %>
@@ -154,10 +154,11 @@
     %>
 </div>
 
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
 
-<div id="div1">
-    部门名称：<select id="selDep" name="dpName">
+    <div id="div1">
+    部门名称：<br><select id="selDep" name="dpName">
     <option></option>
     <%
         List<Department> departments = (List<Department>) request.getAttribute("departments");
@@ -167,14 +168,13 @@
     <%
         }
         %>
-</select>
+</select><br>
     职位名称：
     <form action="eEmployee" method="post">
-        <select id="selPos" name="pName"></select>
+        <select id="selPos" name="pName"></select><br>
         <input id="choosePos" type="submit" value="选择职位">
     </form>
 
-    <br>
 </div>
 
     <div id="div3" style="display: none">
@@ -187,9 +187,8 @@
         <%
             }
         %>
-    </select>
+    </select><br>
         职位名称：<select id="selPos1" name="pName">
-    </select>
     </select><br>
         <input id="changePos2" type="button" value="确定职位">
     </div>
@@ -202,7 +201,8 @@
 
 <fieldset>
     <legend>员工信息</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>名字</th>
             <th>性别</th>
@@ -250,23 +250,28 @@
             }
         %>
     </table>
+    </div>
 </fieldset>
 
-    <div class="div4">
+        <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+            <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=employeePage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=employeePage.getPageNo()%> 页</span>
+        <span>第 <%=employeePage.getPageNo()%> 页</span>
         <span><a id="b1" class="aPageState" href="eEmployee?pageNo=1">首页</a></span>
         <span><a id="b2" class="aPageState" href="eEmployee?pageNo=<%=employeePage.getPrevPage()%>">上一页</a></span>
         <span><a id="b3" class="aPageState" href="eEmployee?pageNo=<%=employeePage.getNextPage()%>">下一页</a></span>
         <span><a id="b4" class="aPageState" href="eEmployee?pageNo=<%=employeePage.getTotalPage()%>">尾页</a></span>
-
+            </div>
+            <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="eEmployee"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" type="number" name="pageNo">
             <input type="hidden" name="pName" value="">
             <input id="b5" type="submit" value="跳转">
         </form>
+            </div>
 
     </div>
+</div>
 </div>
 </body>
 </html>

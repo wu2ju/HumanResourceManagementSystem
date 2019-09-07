@@ -34,15 +34,21 @@ public class AdminController {
     }*/
 
     @RequestMapping("addPos")
-    public String addPos(Position position, Department d, Model model){
+    public String addPos(Position p, Department d, Model model){
         // d里面有dpName，在该dpName的部门下添加职位
-        System.out.println("addPos: " + position);
+        System.out.println("addPos: " + p);
         System.out.println("addPos: " + d);
+        if (p.getpName().equals("") || p.getpSalary()==null || p.getpLocation().equals("") || p.getpExperience().equals("") ||
+                p.getpEducation()==null || p.getpIntroduction().equals("") || p.getpRequest().equals("")){
+            model.addAttribute("str","填入信息不完整");
+            return "forward:position";
+        }
         Department department = departmentBiz.getDepartmentByDpName(d.getDpName());
-        position.setDepartment(department);
-        boolean flag = positionBiz.addPosition(position);
+        p.setDepartment(department);
+        boolean flag = positionBiz.addPosition(p);
         if (!flag){
-            model.addAttribute("flag",flag);
+            model.addAttribute("str","添加失败");
+            return "forward:position";
         }
         return "forward:position";
     }
@@ -61,6 +67,8 @@ public class AdminController {
     @RequestMapping("updatePos")
     public String updatePos(Position position, Model model){
         // 1、显示部门信息
+        Position position1 = positionBiz.getPositionById(position.getpId());
+        position.setDepartment(position1.getDepartment());
         boolean flag = positionBiz.updatePosition(position);
         //不管更新成功或失败
         if (flag){
@@ -105,10 +113,14 @@ public class AdminController {
     @RequestMapping("addDep")
     public String addDep(Department d, Model model){
         // 增加部门
+        if (d.getDpName().equals("")){
+            model.addAttribute("str","填写信息不完整");
+            return "forward:department";
+        }
         boolean flag = departmentBiz.addDepartment(d);
         //不管更新成功或失败
         if (!flag){
-            model.addAttribute("flag",flag);
+            model.addAttribute("str","添加失败");
         }
         return "forward:department";
     }
@@ -158,7 +170,8 @@ public class AdminController {
         if (c.getCpPhone() != null){
             companyBiz.updateCompany(c);
         }
-        c = companyBiz.getCompanyByName(c.getCpName());
+//        c = companyBiz.getCompanyByName(c.getCpName());
+        c = companyBiz.getCompanyById(1);
         model.addAttribute("company",c);
         return "companyInfo";
     }

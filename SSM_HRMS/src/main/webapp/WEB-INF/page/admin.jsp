@@ -19,6 +19,9 @@
 <%--管理员功能--%>
 <%--<%@include file="adminHead.jsp"%>--%>
 <jsp:include page="adminHead.jsp"/>
-
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
+    </div>
+</div>
 </body>
 </html>

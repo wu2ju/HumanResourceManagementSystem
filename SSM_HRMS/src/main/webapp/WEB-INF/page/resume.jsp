@@ -27,7 +27,8 @@
 </head>
 <body>
 <jsp:include page="recruitHead.jsp"/>
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
     <%--只显示一个简历的信息--%>
     <div>
         <form action="resume" method="post">
@@ -53,7 +54,8 @@
     </div>
     <fieldset>
         <legend>简历信息</legend>
-        <table id="1">
+        <div class="table-wrapper pl27 " style="min-width:1000px;">
+            <table id="1" class="table text-center">
             <tr>
                 <th>姓名</th>
                 <th>性别</th>
@@ -92,8 +94,9 @@
             </tr>
         </table>
 
+
         <p>教育经历</p>
-        <table id="2">
+                <table id="2" class="table text-center">
             <tr>
                 <th>学校</th>
                 <th>专业</th>
@@ -117,7 +120,7 @@
         </table>
 
         <p>工作经历</p>
-        <table id="3">
+            <table id="3" class="table text-center">
             <tr>
                 <th>公司名称</th>
                 <th>职位名称</th>
@@ -139,7 +142,7 @@
         </table>
 
         <p>期望职位</p>
-        <table id="4">
+            <table id="4" class="table text-center">
             <tr>
                 <th>期望职位</th>
                 <th>薪资要求</th>
@@ -157,8 +160,10 @@
                 </form>
             </tr>
         </table>
+        </div>
     </fieldset>
 
+</div>
 </div>
 </body>
 </html>

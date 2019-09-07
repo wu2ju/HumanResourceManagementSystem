@@ -5,7 +5,7 @@ import java.util.List;
 public class Position {
     private Integer pId;
     private String pName;
-    private double pSalary;
+    private Double pSalary;
     private String pLocation;
     private String pExperience;
     private String pEducation;
@@ -37,11 +37,11 @@ public class Position {
         this.pName = pName;
     }
 
-    public double getpSalary() {
+    public Double getpSalary() {
         return pSalary;
     }
 
-    public void setpSalary(double pSalary) {
+    public void setpSalary(Double pSalary) {
         this.pSalary = pSalary;
     }
 

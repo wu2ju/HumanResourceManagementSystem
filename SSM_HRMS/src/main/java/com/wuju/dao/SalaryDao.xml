@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wuju.dao.SalaryDao">
+    <insert id="addSalary">
+        insert into T_SALARY values (SEQ_SALARY.nextval,#{slBase},#{slBonus},#{slRp},#{slSecurity},#{slDate},#{slState},#{slTotal},#{slReal},#{employee.eId})
+    </insert>
+    <update id="updateSalary">
+        update T_SALARY set SL_STATE=2 where SL_ID=#{slId}
+    </update>
+    <select id="getSalaryById" resultMap="salToEmp">
+        select * from T_SALARY where SL_ID=#{slId}
+    </select>
+    <select id="getSalaryByeIdAndLimit" resultMap="salToEmp">
+select SL_ID,SL_BASE,SL_BONUS,SL_RP,SL_SECURITY,SL_DATE,SL_STATE,SL_TOTAL,SL_REAL,E_ID from (
+select rownum rn,SL_ID,SL_BASE,SL_BONUS,SL_RP,SL_SECURITY,SL_DATE,SL_STATE,SL_TOTAL,SL_REAL,E_ID from T_SALARY
+        where E_ID=#{eId} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getSalaryCountByeId" resultType="java.lang.Integer">
+        select count(*) from T_SALARY where E_ID=#{eId}
+    </select>
+    <select id="getAllSalarysByLimit" resultMap="salToEmp">
+        select SL_ID,SL_BASE,SL_BONUS,SL_RP,SL_SECURITY,SL_DATE,SL_STATE,SL_TOTAL,SL_REAL,E_ID from (
+select rownum rn,SL_ID,SL_BASE,SL_BONUS,SL_RP,SL_SECURITY,SL_DATE,SL_STATE,SL_TOTAL,SL_REAL,E_ID from T_SALARY
+        where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getAllSalaryCount" resultType="java.lang.Integer">
+        select count(*) from T_SALARY
+    </select>
+    <select id="getSalaryByMonth" resultType="java.lang.Integer">
+        select count(*) from T_SALARY where to_number(to_char(SL_DATE,'YYYY'))= to_number(to_char(sysdate,'YYYY')) and
+        to_number(to_char(SL_DATE,'MM')) =to_number(to_char(sysdate,'MM'))
+    </select>
+
+    <resultMap id="salToEmp" type="Salary">
+        <id property="slId" column="SL_ID"/>
+        <result property="slBase" column="SL_BASE"/>
+        <result property="slBonus" column="SL_BONUS"/>
+        <result property="slRp" column="SL_RP"/>
+        <result property="slSecurity" column="SL_SECURITY"/>
+        <result property="slDate" column="SL_DATE"/>
+        <result property="slState" column="SL_STATE"/>
+        <result property="slTotal" column="SL_TOTAL"/>
+        <result property="slReal" column="SL_REAL"/>
+        <association property="employee" column="E_ID" javaType="Employee"
+                     select="com.wuju.dao.EmployeeDao.getEmployeeByeId"/>
+    </resultMap>
+</mapper>

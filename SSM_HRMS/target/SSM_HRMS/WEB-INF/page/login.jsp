@@ -51,9 +51,9 @@
         </div>
         <input class="btn order-food-menu-btn login-btn " type="submit" value="登录">
     </div>
-    <div class="login-footer clearfix"><img class="ybs" style="cursor: pointer;" src="img/login_jj.jpg" width="57" height="42" alt=""></div>
 
 </form>
+<div class="login-footer clearfix"><img class="ybs" style="cursor: pointer;" src="img/login_jj.jpg" width="57" height="42" alt=""></div>
 
 </body>
 </html>

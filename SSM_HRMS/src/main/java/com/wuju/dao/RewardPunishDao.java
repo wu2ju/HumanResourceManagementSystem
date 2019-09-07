@@ -12,7 +12,12 @@ public interface RewardPunishDao {
     boolean delRewardPunish(int rpId);
     RewardPunish getRewardPunishById(int rpId);
     List<RewardPunish> getRewardPunishByeIdAndLimit(HashMap map);
+    List<RewardPunish> getRewardPunishMonthByLimit(HashMap map);
+    List<RewardPunish> getRewardPunishMonthByeIdAndLimit(HashMap map);
+    int getRewardPunishCountMonthByeId(HashMap map);
+    int getRewardPunishCountMonth(int month);
     int getRewardPunishCountByeId(int eId);
+    List<RewardPunish> getRewardPunishMonthByeId(int eId);
     List<RewardPunish> getAllRewardPunishByLimit(HashMap map);
     int getAllRewardPunishCount();
     RewardPunish getRewardPunishByeIdAndRpTimeAndRpRecord(HashMap map);

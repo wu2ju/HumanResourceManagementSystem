@@ -70,6 +70,9 @@
         T_TRAIN tr, T_TRAINOBJECT tob, T_EMPLOYEE e
         where tr.TR_ID=tob.TR_ID and e.E_ID=tob.E_ID and e.E_ID=#{eId} and tr.TR_STATE=#{trState}
     </select>
+    <select id="getEmployeeById" resultMap="empToPos">
+        select * from T_EMPLOYEE where E_ID=#{eId}
+    </select>
 
 
     <resultMap id="empToPos" type="Employee">

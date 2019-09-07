@@ -2,6 +2,7 @@ package com.wuju.controller;
 
 import com.wuju.biz.*;
 import com.wuju.model.*;
+import com.wuju.util.ControllerUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +24,61 @@ public class EmployeeController2 {
     private RewardPunishBiz rewardPunishBiz;
 
 
+    @RequestMapping("addRewardPunish")
+    public String addRewardPunish(RewardPunish rp, String rpTime1, Double rpMoney1, Integer eId, HttpSession session, Model model){
+        if(rp.getRpReason()==null || rp.getRpReason().equals("") || rpTime1==null || rpTime1.equals("") ||
+                rpMoney1 == null || eId == null){
+            model.addAttribute("str", "信息不正确");
+            return "forward:eRewardPunish";
+        }
+        Timestamp rpTime = ControllerUtil.strToTimestamp(rpTime1);
+        rp.setRpTime(rpTime);
+        rp.setRpMoney(rpMoney1);
+        rp.setEmployee(employeeBiz.getEmployeeById(eId));
+        rp.setRpRecord(2);
+        rewardPunishBiz.addRewardPunish(rp);
+        return "forward:eRewardPunish";
+    }
+
+    @RequestMapping("updateRewardPunish")
+    public String updateRewardPunish(RewardPunish rp, String rpTime1, Double rpMoney1, HttpSession session, Model model){
+        if(rp.getRpReason()==null || rp.getRpReason().equals("") || rpTime1==null || rpTime1.equals("") ||
+        rpMoney1 == null){
+            model.addAttribute("str", "信息不正确");
+            return "forward:eRewardPunish";
+        }
+        RewardPunish rp1 = rewardPunishBiz.getRewardPunishById(rp.getRpId());
+        Timestamp rpTime = ControllerUtil.strToTimestamp(rpTime1);
+        rp.setRpTime(rpTime);
+        rp.setRpMoney(rpMoney1);
+        rp.setEmployee(rp1.getEmployee());
+        rp.setRpRecord(2);
+        rewardPunishBiz.updateRewardPunish(rp);
+        return "forward:eRewardPunish";
+    }
+
     @RequestMapping("eRewardPunish")
-    public String eRewardPunish(Integer pageNo, HttpSession session, Model model){
+    public String eRewardPunish(Integer pageNo, Integer month, Integer eId, HttpSession session, Model model){
         // 查看员工所有的打卡记录。
         if(pageNo == null || pageNo < 1){
             pageNo=1;
         }
         Employee e = (Employee) session.getAttribute("e");
-        Page<RewardPunish> rewardPunishPage = rewardPunishBiz.getRewardPunishByeIdAndLimit(e.geteId(),pageNo);
+        Page<RewardPunish> rewardPunishPage = new Page<>();
+        if (e.geteType() == 1){
+            rewardPunishPage = rewardPunishBiz.getRewardPunishByeIdAndLimit(e.geteId(),pageNo);
+        }else {
+            if (month == null){
+                month = 1;
+            }
+            if (eId != null){
+                rewardPunishPage = rewardPunishBiz.getRewardPunishMonthByeIdAndLimit(month,eId,pageNo);
+            }else {
+                rewardPunishPage = rewardPunishBiz.getRewardPunishMonthByLimit(month, pageNo);
+            }
+        }
+        List<Employee> employees = employeeBiz.getAllEmployees();
+        model.addAttribute("employees",employees);
         model.addAttribute("rewardPunishPage",rewardPunishPage);
         return "eRewardPunish";
     }
@@ -61,7 +109,7 @@ public class EmployeeController2 {
                     if (hour < 9){
                         //生成一条惩罚记录
                         hourCal = (int) Math.floor(hour);
-                    }else if (hour > 10){
+                    }else if (hour >= 9){
                         //生成一条奖励记录
                         hourCal = (int) Math.ceil(hour);
                     }

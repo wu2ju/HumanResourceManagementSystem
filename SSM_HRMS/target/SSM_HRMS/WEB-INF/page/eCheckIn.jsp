@@ -26,16 +26,18 @@
 </head>
 <body>
 <jsp:include page="employeeHead.jsp"/>
-<div>
-    <a href="eCheckIn">打卡</a>
-    <a href="eCheckInLog">所有打卡记录</a>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
+    <%--<a href="eCheckIn">打卡</a>
+    <a href="eCheckInLog">所有打卡记录</a>--%>
 
 <%--显示部门下所有职位的招聘信息--%>
     <td><p style="color: red">${str}</p></td>
 
 <fieldset>
     <legend>今日打卡记录</legend>
-    <table>
+    <div class="table-wrapper pl27 " style="min-width:1000px;">
+        <table class="table text-center">
         <tr>
             <th>上班时间</th>
             <th>下班时间</th>
@@ -45,6 +47,7 @@
             <td>${checkIn.ciClosetime.getTime()<1 ? "未打下班卡" : checkIn.ciClosetime}</td>
         </tr>
     </table>
+
     <form action="eCheckIn" method="post">
         <input type="hidden" name="method" value="attend">
         <td><input type="submit" value="上班打卡"></td>
@@ -53,8 +56,10 @@
         <input type="hidden" name="method" value="close">
         <td><input type="submit" value="下班打卡"></td>
     </form>
+    </div>
 </fieldset>
 
+</div>
 </div>
 </body>
 </html>

@@ -4,4 +4,17 @@
     <insert id="addQuit">
         insert into T_QUIT values(SEQ_QUIT.nextval,#{qtTime},#{qtReason},#{employee.eId})
     </insert>
+    <select id="getQuitMonth" resultMap="quiToEmp">
+        select * from T_QUIT where to_number(to_char(QT_TIME,'YYYY'))= to_number(to_char(sysdate,'YYYY')) and
+        to_number(to_char(QT_TIME,'MM')) in (to_number(to_char(sysdate,'MM')),to_number(to_char(sysdate,'MM'))-1)
+        and E_ID=#{eId}
+    </select>
+
+    <resultMap id="quiToEmp" type="Quit">
+        <id property="qtId" column="QT_ID"/>
+        <result property="qtTime" column="QT_TIME"/>
+        <result property="qtReason" column="QT_REASON"/>
+        <association property="employee" column="E_ID" javaType="Employee"
+                     select="com.wuju.dao.EmployeeDao.getEmployeeByeId"/>
+    </resultMap>
 </mapper>

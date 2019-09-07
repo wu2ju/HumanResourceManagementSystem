@@ -15,6 +15,8 @@ public interface CheckInDao {
     int getCheckInCountByeId(int eId);
     List<CheckIn> getAllCheckInsByLimit(HashMap map);
     int getAllCheckInCount();
+    List<CheckIn> getCheckInMonthByeId(int eId);
+    // 获取上个月的考勤记录
     List<CheckIn> getAllCheckIns();
     CheckIn getCheckInToday();
 }

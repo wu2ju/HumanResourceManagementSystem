@@ -31,13 +31,35 @@
     <select id="getRewardPunishCountByeId" resultType="java.lang.Integer">
         select count(*) from T_REWARDPUNISH where E_ID=#{eId}
     </select>
-    <select id="getAllRewardPunishByLimit" resultType="com.wuju.model.RewardPunish">
+    <select id="getAllRewardPunishByLimit" resultMap="repToEmp">
         select RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from
          (select rownum rn,RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from T_REWARDPUNISH
           where <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
     </select>
     <select id="getAllRewardPunishCount" resultType="java.lang.Integer">
         select count(*) from T_REWARDPUNISH
+    </select>
+    <select id="getRewardPunishMonthByLimit" resultMap="repToEmp">
+        select RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from
+         (select rownum rn,RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from T_REWARDPUNISH
+        where to_number(to_char(RP_TIME,'MM')) = #{month} and <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getRewardPunishCountMonth" resultType="java.lang.Integer">
+        select count(*) from T_REWARDPUNISH where to_number(to_char(RP_TIME,'MM')) = #{month}
+    </select>
+    <select id="getRewardPunishMonthByeIdAndLimit" resultMap="repToEmp">
+        select RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from
+         (select rownum rn,RP_ID,RP_TIME,RP_REASON,E_ID,RP_RECORD,RP_MONEY from T_REWARDPUNISH
+        where to_number(to_char(RP_TIME,'MM')) = #{month} and E_ID=#{eId} and
+        <![CDATA[ rownum <= ]]>#{end}) a where <![CDATA[ a.rn >= ]]> #{start}
+    </select>
+    <select id="getRewardPunishCountMonthByeId" resultType="java.lang.Integer">
+        select count(*) from T_REWARDPUNISH where to_number(to_char(RP_TIME,'MM')) = #{month} and E_ID=#{eId}
+    </select>
+    <select id="getRewardPunishMonthByeId" resultType="com.wuju.model.RewardPunish">
+        select * from T_REWARDPUNISH where to_number(to_char(RP_TIME,'YYYY'))= to_number(to_char(sysdate,'YYYY')) and
+        to_number(to_char(RP_TIME,'MM')) =to_number(to_char(sysdate,'MM'))-1
+        and E_ID=#{eId}
     </select>
 
     <resultMap id="repToEmp" type="RewardPunish">

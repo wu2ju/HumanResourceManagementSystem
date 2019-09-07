@@ -1,0 +1,30 @@
+
+2019.9.6
+人力资源管理项目经验总结
+
+常见错误：
+1、dao层增加，问题有“加了分号”，“添加列为空，为空字符串”（投机取巧，用一格空格的字符串代替）
+2、jsp传递数据到Controller的RequestMapping，会出现为null，为空字符串，
+为“null”(存数据在JavaScript的sessionStorage里)，还没总结出对应的规律，
+包括select,input text, input datetime-local（用String接收，用util中的方法转换成Timestamp）
+。防止为空的取巧的方法，添加required属性
+3、Interceptor在SpringMVC-servlet.xml中的path配置需要加“/”
+4、Maven配置刚开始不能用el表达式，需要拷贝原来的java EE下的web.xml过来
+
+教训总结：
+1、在SpringMVC-servlet.xml中配置，解析静态资源，不然出现js/css/img文件找不到资源
+2、
+
+经验总结：
+1、在传递参数时，尽可能在传递之前判断入参是否为空，减小后续的压力
+2、用ajax做二级、三级联动，见aTrain.jsp
+3、用点击事件进行页面调转，还是ajax，见eEmployee.jsp
+4、input submit，value被占用了，可以通过name传递值，见eEmployee.jsp的leavePos
+5、dao层用了外连接（防止数据找不到）多表查询加上分页，见TrainDao、TrainObjectDao、EmployeeDao
+6、外连接加上分页，找不出列表，在TrainBizImpl查找重新添加了
+7、util中包含Timestamp和String的互相转换，以及不同类的相同属性的传递值
+8、用了别人的页面
+
+遗憾：
+1、dao层中用动态sql太少
+2、jsp中没用jstl库，javascript tag library

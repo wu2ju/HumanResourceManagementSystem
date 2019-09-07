@@ -19,8 +19,9 @@
 </head>
 <body>
 <jsp:include page="employeeHead.jsp"/>
-
-<%
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
+    <%
     Employee employeeWithTrain = (Employee) session.getAttribute("employeeWithTrain");
     if (employeeWithTrain != null){
     List<Train> trains = employeeWithTrain.getTrains();
@@ -34,7 +35,8 @@
 <div>
     <fieldset>
         <legend>个人信息</legend>
-        <table>
+        <div class="table-wrapper pl27 " style="min-width:1000px;">
+            <table class="table text-center">
             <tr>
                 <th>名字</th>
                 <th>性别</th>
@@ -58,7 +60,10 @@
             </tr>
 
         </table>
+        </div>
     </fieldset>
+</div>
+</div>
 </div>
 </body>
 </html>

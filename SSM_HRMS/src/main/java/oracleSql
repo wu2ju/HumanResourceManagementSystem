@@ -1,4 +1,10 @@
 ¥¥Ω®–Ú¡–
+create sequence seq_salary
+increment by 1
+start with 1
+maxvalue 9999
+nocycle
+nocache;
 create sequence seq_quit
 increment by 1
 start with 1

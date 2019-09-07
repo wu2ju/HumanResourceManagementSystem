@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface QuitDao {
     boolean addQuit(Quit quit);
+    // 找出这个月或者上个月离职的员工
+    Quit getQuitMonth(int eId);
 }

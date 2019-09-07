@@ -44,21 +44,27 @@
             })
         })
     </script>
-
+    <style>
+        .table-wrapper .table td label{
+            width: 40px;
+            text-align: left;
+        }
+    </style>
 
 </head>
 <body>
 <jsp:include page="adminHead.jsp"/>
-<div>
+<div id="main">
+    <div style="-webkit-overflow-scrolling:touch;overflow:auto;height: 100%;position: absolute;z-index: 999" >
     <div>
-        <a class="a0" name="" href="adminInterview">所有面试</a>
+        <a style="font-size: larger"  class="a0" name="" href="adminInterview">所有面试</a>
         <%
             HashMap<Integer, String> chooseItState = (HashMap<Integer, String>) request.getAttribute("chooseItState");
             if (chooseItState != null){
                 Set<Integer> keySet = chooseItState.keySet();
                 for (Integer key : keySet) {
         %>
-        <a class="a0" name="<%=key%>" href="adminInterview?itState=<%=key%>"><%=chooseItState.get(key)%></a>
+        <a style="font-size: larger" class="a0" name="<%=key%>" href="adminInterview?itState=<%=key%>"><%=chooseItState.get(key)%></a>
         <%
             }
             }
@@ -67,8 +73,9 @@
 
     <%--显示投递简历之后的面试消息--%>
     <fieldset>
-        <legend>招聘信息</legend>
-        <table>
+        <legend><div class="frame-header"><span class="page-reload cur">招聘信息</span></div></legend>
+        <div class="table-wrapper pl27 " style="min-width:1000px;">
+            <table class="table text-center">
             <tr>
                 <th>职位名称</th>
                 <th>投简历者</th>
@@ -91,7 +98,7 @@
                 <td><%=interview.getItDeliveryResume()%></td>
                 <td><%=interview.getItState()%> 是否发送面试通知</td>
                 <form action="updateInterview" method="post">
-                    <td><input type="datetime-local" min="<%=new Date()%>" name="itTime1"></td>
+                    <td><input style="width: 170px" type="datetime-local" min="<%=new Date()%>" name="itTime1" required></td>
                     <td><input name="itAddress" value="<%=interview.getRecruit().getPosition().getpLocation()%>"></td>
                     <td><select name="eId">
                         <%
@@ -163,23 +170,29 @@
                 }
             %>
         </table>
+        </div>
     </fieldset>
 
-    <div class="div4">
+    <div class="div4" style="width: 400px; position: absolute; left: 30%; margin-left: -120px;">
+        <div class="fl tb3" style="width: 350px;float: left;">
         <span>共 <%=interviewPage.getTotalPage()%> 页</span>
-        <span>当前在第 <%=interviewPage.getPageNo()%> 页</span>
+        <span>第 <%=interviewPage.getPageNo()%> 页</span>
         <span><a id="b1" class="aPageState" href="adminInterview?pageNo=1">首页</a></span>
         <span><a id="b2" class="aPageState" href="adminInterview?pageNo=<%=interviewPage.getPrevPage()%>">上一页</a></span>
         <span><a id="b3" class="aPageState" href="adminInterview?pageNo=<%=interviewPage.getNextPage()%>">下一页</a></span>
         <span><a id="b4" class="aPageState" href="adminInterview?pageNo=<%=interviewPage.getTotalPage()%>">尾页</a></span>
+        </div>
 
+        <div class="fr tb5" style="text-align: left;padding-right: 0px;position: absolute; right: 0; top: 0;">
         <form action="adminInterview"  onsubmit="return checkNum(this.children[1].value)">
-            <span>跳转到</span><input name="pageNo">
+            <span>跳转到</span><input style="width: 40px;height: 26px;" class="text-center" name="pageNo">
             <input type="hidden" name="itState" value="">
             <input id="b5" type="submit" value="跳转">
         </form>
+        </div>
 
     </div>
+</div>
 </div>
 </body>
 </html>

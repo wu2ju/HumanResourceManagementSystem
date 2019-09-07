@@ -53,7 +53,7 @@
 
         <a href=""><img class="login-logo" src="img/logo.png"></a>
         <div class="login-title default"></div>
-        <div class="login-name">用户登录</div>
+        <div class="login-name">用户注册</div>
         <div class="login-form-area">
 
             <div class="login-input">
